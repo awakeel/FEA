@@ -21,7 +21,7 @@ export class ComponentMetadataService {
 
     getComponentMetaData() {
 
-        return <Observable<DLENTITYDATA>>this.http.get('../assets/dataNEW.json')
+        return <Observable<DLENTITYDATA>>this.http.get('http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/DL_CMSView')
             .map((res) => <EntityBase>res.json())
             .map((res) => res.DL_ENTITYDATA)
             .catch(this.handleError);
