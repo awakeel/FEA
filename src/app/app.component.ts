@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
     private obs: Observable<DLENTITYDATA>;
 
-    private isDataLoaded: boolean;
+    public isDataLoaded: boolean;
     constructor(private componentMetaService: ComponentMetadataService) {
         this.isDataLoaded = false;
         this.obs = this.componentMetaService.getComponentMetaData();
@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
             .flatMap((res) => res.DL_CMSView)
             .subscribe(
             (d) => {
+                console.log(d);
                 this.cmsData.push(d);
                 this.isDataLoaded = true;
             }
@@ -40,7 +41,10 @@ export class AppComponent implements OnInit {
     }
 
     filterByZone(zone: string) {
-        if (this.cmsData && this.cmsData.length) {
+        console.log(zone + 'zone called');
+        if (this.cmsData) {
+            console.log(zone + 'zone called');
+            
             return this.cmsData.filter(z => z.DL_Zone.toLowerCase() === zone);
         }
     }
