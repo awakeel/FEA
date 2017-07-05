@@ -1,0 +1,13 @@
+﻿ 
+<table class="table table-user-information table t" style="width:100%:">
+
+  <tbody>
+  
+    <tr *ngFor="let row of data">
+    <td><a (click)="goToObject(webPart.DL_Action)">{{row[webPart.DL_Column1]}}</a></td>
+      <ng-template [ngIf]="webPart.DL_Column2">
+        <td><a href="">{{row[webPart.DL_Column2]}}</a></td>
+      </ng-template>
+    </tr>   
+  </tbody>
+</table> 
