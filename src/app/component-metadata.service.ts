@@ -1,9 +1,11 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http,URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import './rxjs-extensions';
 import { CMS, DynamicPage, EntityBase, DLENTITYDATA, DLCMSView } from './model';
+import { environment } from '../environments/environment';
 
+const baseUrl: string = environment.baseUrl;
 @Injectable()
 export class ComponentMetadataService {
 
@@ -20,8 +22,9 @@ export class ComponentMetadataService {
     }
 
     getComponentMetaData() {
-
-        return <Observable<DLENTITYDATA>>this.http.get('http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/DL_CMSView')
+        const params = new URLSearchParams(window.location.search);
+        const where = params.get('page');
+        return <Observable<DLENTITYDATA>>this.http.get(baseUrl+"/DL_CMSView.json/?&where=DL_PageTitle='"+ where +"'")
             .map((res) => <EntityBase>res.json())
             .map((res) => res.DL_ENTITYDATA)
             .catch(this.handleError);

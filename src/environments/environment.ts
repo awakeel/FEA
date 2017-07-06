@@ -5,5 +5,6 @@
 
 export const environment = {
     production: false,
-    baseUrl: 'http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/'
+    baseUrl: '../../assets/'
+   // baseUrl: 'http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/'
 };
