@@ -35,7 +35,7 @@ export class OrganizationComponent implements OnInit {
         console.log(this.apiUrl);
         this.getData().subscribe(data => {
             if (data.DL_ENTITYDATA)
-                this.data = data.DL_ENTITYDATA[this.webPart.DL_View];
+                this.data = data.DL_ENTITYDATA['DL_OrganisationView'];
             else
                 this.data = [];
         })
