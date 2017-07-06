@@ -33,7 +33,7 @@ export class RecentComponent implements OnInit {
         this.getData().subscribe(data => {
              
             if (data.DL_ENTITYDATA)
-                this.data = data.DL_ENTITYDATA[this.webPart.DL_View];
+                this.data = data.DL_ENTITYDATA['_DL_Organisation'];
             else
                 this.data = [];
            
