@@ -1,0 +1,40 @@
+<section class="main-container">
+    <div class="row" *ngIf="isDataAvailable">
+
+        <div class="col-sm-4 webpart">
+            <app-dynamic-loader [_widgets]="filterByZone('left')"></app-dynamic-loader>
+        </div>
+        <div class="col-sm-4 webpart">
+            <app-dynamic-loader [_widgets]="filterByZone('center')"></app-dynamic-loader>
+        </div>
+        <div class="col-sm-4 webpart">
+            <app-dynamic-loader [_widgets]="filterByZone('right')"></app-dynamic-loader>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!--<div class="row" *ngIf="isDataAvailable && filterByCurrentPage().PageTemplate ='2-col'">
+
+        <div class="col-sm-4 webpart">
+            <app-dynamic-loader [_widgets]="filterByZone('left')"></app-dynamic-loader>
+        </div>
+        <div class="col-sm-4 webpart">
+            <app-dynamic-loader [_widgets]="filterByZone('center')"></app-dynamic-loader>
+        </div>
+        <div class="col-sm-4 webpart">
+            <app-dynamic-loader [_widgets]="filterByZone('right')"></app-dynamic-loader>
+        </div>
+    </div>-->
+</section>
