@@ -1,33 +1,51 @@
-﻿<div >
+﻿<div>
+    <p title="Vis organisationens stamkort...">
+        <b>Organisation:</b>
+        <ng-template [ngIf]="data.DL_OrganisationShort">
+            {{data.DL_OrganisationShort}}/
+        </ng-template>
+        <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
+    </p>
 
-  <table class="table table-user-information table t" style="width:100%">
-    <tbody>
-      <tr>
-        <td>Organisation:</td>
-        <td><a>{{data.DL_OrganisationTitle}}</a></td>
-      </tr>
-      <tr>
-        <td>Titel:</td>
-        <td>{{data.DL_Title}}</td>
-      </tr>
-      <tr>
-        <td>LO-DA tilladt</td>
-        <td>{{data.ORGA_MEDLEM_AF}}</td>
-      </tr>
+    <ng-template [ngIf]="data.DL_OrganisationTitle">
+        <p>
+            <b>Titel:</b>
+            {{data.DL_OrganisationTitle}}
+        </p>
+    </ng-template>
 
-      <tr>
-      <tr>
-        <td>Oprettet af 
-</td>
-        <td>{{data.DL_Modified}}</td>
-      </tr>
-      <tr>
-        <td>Ændret af</td>
-        <td>{{data.DL_ModifiedBy}}</td>
-      </tr>
-       
-    </tbody>
-  </table>
-   
+    <ng-template [ngIf]="data.DL_CVRNR">
+        <p>
+            <b>CVR:</b>
+            {{data.DL_CVRNR}}
+        </p>
+    </ng-template>
+
+
+    <ng-template [ngIf]="DL_ParentOrganisation == 'GNYF'">
+        <p>
+            <b>Moder organisation:</b>
+            <a href="/C16/Organisation/default.aspx?DL_Organisation={{DL_ParentOrganisation}}">{{DL_ParentOrganisationDenorm}}</a>
+        </p>
+    </ng-template>
+
+
+    <p title="Vis organisationens stamkort...">
+        <b>LO-DA tilladt:</b>
+        <ng-template [ngIf]="data.DL_Add==1">
+            Slet LO-DA flag
+        </ng-template>
+        <ng-template [ngIf]="data.DL_Add!=1">
+            Opret LO-DA flag
+        </ng-template>
+        <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
+    </p>
+    <p>
+        <b>Oprettet af:</b>
+        {{data.DL_CreatedBy}}
+    </p>
+    <p>
+        <b>Ændret af:</b>
+        {{data.DL_ModifiedBy}}
+    </p>
 </div>
- 
