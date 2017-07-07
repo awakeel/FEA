@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class FeaWebappPage {
+export class FeaDynamicPage {
   navigateTo() {
     return browser.get('/');
   }
