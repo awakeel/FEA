@@ -1,51 +1,70 @@
-﻿<div>
-    <p title="Vis organisationens stamkort...">
-        <b>Organisation:</b>
-        <ng-template [ngIf]="data.DL_OrganisationShort">
-            {{data.DL_OrganisationShort}}/
-        </ng-template>
-        <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
-    </p>
+﻿ 
+<div class="portlet-body">
+    <table class="table table-striped table-bordered table-advance table-hover">
+         
+        <tbody>
+            <tr>
+                <td title="Vis organisationens stamkort...">
+                     Organisation 
+                </td>
+                <td class="hidden-xs">
+                    <ng-template [ngIf]="data.DL_OrganisationShort">
+                        {{data.DL_OrganisationShort}}/
+                    </ng-template>
+                    <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
 
-    <ng-template [ngIf]="data.DL_OrganisationTitle">
-        <p>
-            <b>Titel:</b>
-            {{data.DL_OrganisationTitle}}
-        </p>
-    </ng-template>
+                </td>
+               
+            </tr>  
+            <ng-template [ngIf]="data.DL_OrganisationTitle">
+                <tr>
+                    <td>Titel:</td>
+                    <td>{{data.DL_OrganisationTitle}}</td>
+                </tr>
+            </ng-template>
+            <ng-template [ngIf]="data.DL_CVRNR">
+                <tr>
+                    <td>CVR:</td>
+                    <td>{{data.DL_CVRNR}}</td>
+                </tr>
+            </ng-template>
 
-    <ng-template [ngIf]="data.DL_CVRNR">
-        <p>
-            <b>CVR:</b>
-            {{data.DL_CVRNR}}
-        </p>
-    </ng-template>
+            <ng-template [ngIf]="DL_ParentOrganisation == 'GNYF'">
+                <tr>
+                    <td>Moder organisation</td>
+                    <td><a href="/C16/Organisation/default.aspx?DL_Organisation={{DL_ParentOrganisation}}">{{DL_ParentOrganisationDenorm}}</a></td>
+                </tr>
+            </ng-template>
 
 
-    <ng-template [ngIf]="DL_ParentOrganisation == 'GNYF'">
-        <p>
-            <b>Moder organisation:</b>
-            <a href="/C16/Organisation/default.aspx?DL_Organisation={{DL_ParentOrganisation}}">{{DL_ParentOrganisationDenorm}}</a>
-        </p>
-    </ng-template>
-
-
-    <p title="Vis organisationens stamkort...">
-        <b>LO-DA tilladt:</b>
-        <ng-template [ngIf]="data.DL_Add==1">
-            Slet LO-DA flag
-        </ng-template>
-        <ng-template [ngIf]="data.DL_Add!=1">
-            Opret LO-DA flag
-        </ng-template>
-        <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
-    </p>
-    <p>
-        <b>Oprettet af:</b>
-        {{data.DL_CreatedBy}}
-    </p>
-    <p>
-        <b>Ændret af:</b>
-        {{data.DL_ModifiedBy}}
-    </p>
+            <tr title="Vis organisationens stamkort...">
+                <td> 
+                    <ng-template [ngIf]="data.DL_Add==1">
+                        Slet LO-DA flag
+                    </ng-template>
+                    <ng-template [ngIf]="data.DL_Add!=1">
+                        Opret LO-DA flag
+                    </ng-template>
+                 </td>
+                 <td><a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>
+                     
+                         <ng-template [ngIf]="data.DL_Add==1">
+                             Slet LO-DA flag
+                         </ng-template>
+                         <ng-template [ngIf]="data.DL_Add!=1">
+                             Opret LO-DA flag
+                         </ng-template>
+                     </a></td>
+            </tr>
+            <tr>
+                <td>Oprettet af:</td>
+                <td> {{data.DL_CreatedBy}}</td>
+            </tr>
+            <tr>
+                <td>Ændret af:</td>
+                <td> {{data.DL_ModifiedBy}}</td>
+            </tr>
+                    
+        </tbody>
+    </table>
 </div>

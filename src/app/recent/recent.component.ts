@@ -35,8 +35,7 @@ export class RecentComponent implements OnInit {
             if (data.DL_ENTITYDATA)
                 this.data = data.DL_ENTITYDATA['_DL_Organisation'];
             else
-                this.data = [];
-           
+                this.data = []; 
           
         })
     }
