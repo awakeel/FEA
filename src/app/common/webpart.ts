@@ -1,4 +1,5 @@
-import { DLCMSView } from '../models';
+﻿import { DLCMSView } from '../models';
 export interface WebpartComponent {
-  data: DLCMSView;
-}
+    data: DLCMSView;
+  iframeSource ?: any;
+  }

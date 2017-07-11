@@ -1,5 +1,8 @@
-﻿import { Component, Input, OnInit } from '@angular/core';
+﻿import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
+import { DomSanitizer } from '@angular/platform-browser';
+import { DynamicIframeComponent } from '../dynamic-iframe';
+import { DropdownMenuComponent } from '../common/dropdown-menu';
 import { Observable } from 'rxjs/Rx';
 import '../common/rxjs-extensions';
 import { WebpartComponent } from '../common';
@@ -7,7 +10,7 @@ import { WebpartComponent } from '../common';
 import { DLCMSView } from '../models';
 import { environment } from '../../environments/environment';
 const baseDataAPI: string = environment.dataAPI;
-const actionAPI: string = environment.actionAPI;
+const actionAPI: string = environment.actionsAPI;
 @Component({
   selector: 'app-dynamic-list',
   templateUrl: './dynamic-list.component.html',
@@ -15,7 +18,7 @@ const actionAPI: string = environment.actionAPI;
 
 })
 export class DynamicListComponent implements WebpartComponent, OnInit {
-
+    @ViewChild(DropdownMenuComponent) public dd: DropdownMenuComponent;
   @Input() data: any;
   private apiUrl: string;
 
@@ -26,7 +29,8 @@ export class DynamicListComponent implements WebpartComponent, OnInit {
 
   urlParams: URLSearchParams;
 
-  constructor(private http: Http) {
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+   private viewContainerRef: ViewContainerRef, private http: Http) {
     this.isDataLoaded = false;
     this.isMenuLoaded = false;
     // this.listService.getData();
@@ -104,6 +108,13 @@ export class DynamicListComponent implements WebpartComponent, OnInit {
       fn();
      
       return false;
+  }
+  onMenuClick(event) {
+           console.log(event);
+         if (event) {
+             const fn = new Function(event);
+           return fn();
+            }
   }
   public isArray = (data) => {
       return (Object.prototype.toString.call(data) === '[object Array]');

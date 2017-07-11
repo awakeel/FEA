@@ -5,7 +5,7 @@ import { DLCMSView } from '../models'
 import { environment } from '../../environments/environment';
 
 const baseUrl: string = environment.dataAPI;
-const actionAPI: string = environment.actionAPI;
+const actionAPI: string = environment.actionsAPI;
 
 @Component({
     selector: 'app-adresser',
@@ -16,8 +16,7 @@ export class AdresserComponent implements WebpartComponent, OnInit {
     @Input() data: any
     private apiUrl;
     entityData: any = [];
-
-
+    
     private menuData: any[] = [];
     public isDataLoaded: boolean;
     public isMenuLoaded: boolean;
@@ -46,7 +45,7 @@ export class AdresserComponent implements WebpartComponent, OnInit {
     }
 
     getActionData() {
-        this.http.get(actionAPI)
+        this.http.get(actionAPI + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
             .map(res => res.json())
             .map(d => d.DL_ENTITYDATA)
             .flatMap(m => m['DL_Action'])
@@ -79,6 +78,13 @@ export class AdresserComponent implements WebpartComponent, OnInit {
                 ret = s.match(/%(.*?)%/)[1];
             };
             return ret !== '' ? s.replace(`%${ret}%`, this.urlParams.get(ret)) : '';
+        }
+    }
+    onMenuClick(event) {
+        console.log(event);
+        if (event) {
+            const fn = new Function(event);
+            return fn();
         }
     }
     public isArray = (data) => {

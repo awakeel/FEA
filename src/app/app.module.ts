@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 // import { RouterModule, Route } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './shared';
 import { AppComponent } from './app.component';
 import { PlaceholderDirective } from './common';
@@ -17,7 +17,10 @@ import { AdresserComponent } from './adresser';
 import { ComponentCatalogService } from './common';
 import { DynamicPageComponent } from './dynamic-page';
 import { WebpartDdMenuComponent } from './shared/webpart-dd-menu/webpart-dd-menu.component';
-
+import { DynamicIframeComponent } from './dynamic-iframe/dynamic-iframe.component';
+import { SafeUrlPipe, ExtractNameFromADUserNamePipe } from './shared';
+import { TruncateModule } from './shared/truncate';
+import { DropdownMenuComponent } from './common/dropdown-menu/dropdown-menu.component';
 // export const routes: Route[] = [
 //   {
 //     path: '',
@@ -39,21 +42,26 @@ import { WebpartDdMenuComponent } from './shared/webpart-dd-menu/webpart-dd-menu
     DynamicFormComponent,
     DynamicPageComponent,
       OrganizationComponent, AdresserComponent,
-      WebpartDdMenuComponent
+      WebpartDdMenuComponent, DynamicIframeComponent,
+         SafeUrlPipe,
+          ExtractNameFromADUserNamePipe,
+       DropdownMenuComponent,
      
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+      BrowserAnimationsModule,
+      CommonModule,
     HttpModule,
     NgbModule,
     NgbDropdownModule.forRoot(),
+      TruncateModule
     // RouterModule.forRoot(routes)
   ],
   entryComponents: [DynamicLoaderComponent,
     DynamicListComponent,
     DynamicDetailComponent,
-      DynamicFormComponent, OrganizationComponent, AdresserComponent],
+      DynamicFormComponent, OrganizationComponent, AdresserComponent, DynamicIframeComponent],
   providers: [ComponentCatalogService],
   bootstrap: [AppComponent]
 })

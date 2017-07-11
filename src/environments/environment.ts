@@ -4,9 +4,10 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  metaDataAPI: 'http://',
-  dataAPI: 'http://..',
-  actionAPI:'http://localhost/',
-  local: true
+    production: false,
+    metaDataAPI: 'http://',
+    dataAPI: 'http://..',
+    actionsAPI: '',
+    local: true,
+    menuIconURL:'/EX_Resources/gif/../../EX_Custom/gif/16X16/'
 };

@@ -2,6 +2,7 @@
   production: true,
   metaDataAPI: 'http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/DL_CMSView',
   dataAPI: 'http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/',
-  actionAPI: 'http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/DL_Action',
+  actionsAPI: 'http://sagssystem/ex_sqlSvc/REST/Service.svc/Entity/DL_Action',
+  menuIconURL: '/EX_Resources/gif/../../EX_Custom/gif/16X16/',
   local: false
 };

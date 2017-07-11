@@ -1,31 +1,16 @@
 ﻿
 <div class="card mb-3">
-    <div class="card-header"><span style="float:left">{{data.DL_WebPart}}</span>
-        <span class="float-right">
-          <ul class="navbar-nav ml-auto mt-2 mt-md-0">
-          <li *ngIf="isMenuLoaded" class="nav-item dropdown" ngbDropdown>
-                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-                        <b class="caret"></b>
-                    </a>
-                    <div   class="dropdown-menu dropdown-menu-right">
-
-                       <a  class="dropdown-item" *ngFor="let m of menuData" href="{{m['DL_Action']}}" >
-                        <img src="m[DL_TableIcon]" alt=""> {{m['DL_Title']}}
-                       </a>
-
-
-                    </div>
-                </li>
-          </ul>
-       </span>
-    </div>
+  <div class="card-header">
+    <span style="float:float-left">{{data.DL_WebPart}}</span>
+      <app-dropdown-menu #dd [dataEntityName]="data.DL_View" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
+  </div>
     <div class="card-block table-responsive">
         <p title="Vis organisationens stamkort...">
             <b>Organisation:</b>
             <ng-template [ngIf]="entityData.DL_OrganisationShort">
                 {{entityData.DL_OrganisationShort}}/
             </ng-template>
-            <a href='javascript:loadentity("{{data.DL_View}}","{{entityData.DL_Id}}")'>{{entityData.DL_OrganisationTitle}}</a>
+            <a href='javascript:loadentity("{{data.DL_View}}","{{entityData.DL_Id}}")| safeUrl'>{{entityData.DL_OrganisationTitle}}</a>
         </p>
 
         <ng-template [ngIf]="entityData.DL_OrganisationTitle">
@@ -44,7 +29,7 @@
         <ng-template [ngIf]="entityData.DL_ParentOrganisation == 'GNYF'">
             <p>
                 <b>Moder organisation:</b>
-                <a href="/C16/Organisation/default.aspx?DL_Organisation={{entityData.DL_ParentOrganisation}}">{{entityData.DL_ParentOrganisationDenorm}}</a>
+                <a href="/C16/Organisation/default.aspx?DL_Organisation={{entityData.DL_ParentOrganisation}} | safeUrl">{{entityData.DL_ParentOrganisationDenorm}}</a>
             </p>
         </ng-template>
 
@@ -57,13 +42,13 @@
             <ng-template [ngIf]="entityData.DL_Add!=1">
                 Opret LO-DA flag
             </ng-template>
-            <a href='javascript:loadentity("{{data.DL_View}}","{{entityData.DL_Id}}")'>{{entityData.DL_OrganisationTitle}}</a>
+            <a href='javascript:loadentity("{{data.DL_View}}","{{entityData.DL_Id}}") | safeUrl'>{{entityData.DL_OrganisationTitle}}</a>
         </p>
         <p>
-            <b>Oprettet af:</b> {{entityData.DL_CreatedBy}}
+            <b>Oprettet af:</b> {{entityData.DL_CreatedBy | extractNameFromADUserName}}
         </p>
         <p>
-            <b>Ændret af:</b> {{entityData.DL_ModifiedBy}}
+            <b>Ændret af:</b> {{entityData.DL_ModifiedBy | extractNameFromADUserName}}
         </p>
     </div>
 
