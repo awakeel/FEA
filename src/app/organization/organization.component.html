@@ -1,33 +1,70 @@
-﻿<div >
+﻿ 
+<div class="portlet-body">
+    <table class="table table-striped table-bordered table-advance table-hover">
+         
+        <tbody>
+            <tr>
+                <td title="Vis organisationens stamkort...">
+                     Organisation 
+                </td>
+                <td class="hidden-xs">
+                    <ng-template [ngIf]="data.DL_OrganisationShort">
+                        {{data.DL_OrganisationShort}}/
+                    </ng-template>
+                    <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
 
-  <table class="table table-user-information table t" style="width:100%">
-    <tbody>
-      <tr>
-        <td>Organisation:</td>
-        <td><a>{{data.DL_OrganisationTitle}}</a></td>
-      </tr>
-      <tr>
-        <td>Titel:</td>
-        <td>{{data.DL_Title}}</td>
-      </tr>
-      <tr>
-        <td>LO-DA tilladt</td>
-        <td>{{data.ORGA_MEDLEM_AF}}</td>
-      </tr>
+                </td>
+               
+            </tr>  
+            <ng-template [ngIf]="data.DL_OrganisationTitle">
+                <tr>
+                    <td>Titel:</td>
+                    <td>{{data.DL_OrganisationTitle}}</td>
+                </tr>
+            </ng-template>
+            <ng-template [ngIf]="data.DL_CVRNR">
+                <tr>
+                    <td>CVR:</td>
+                    <td>{{data.DL_CVRNR}}</td>
+                </tr>
+            </ng-template>
 
-      <tr>
-      <tr>
-        <td>Oprettet af 
-</td>
-        <td>{{data.DL_Modified}}</td>
-      </tr>
-      <tr>
-        <td>Ændret af</td>
-        <td>{{data.DL_ModifiedBy}}</td>
-      </tr>
-       
-    </tbody>
-  </table>
-   
+            <ng-template [ngIf]="DL_ParentOrganisation == 'GNYF'">
+                <tr>
+                    <td>Moder organisation</td>
+                    <td><a href="/C16/Organisation/default.aspx?DL_Organisation={{DL_ParentOrganisation}}">{{DL_ParentOrganisationDenorm}}</a></td>
+                </tr>
+            </ng-template>
+
+
+            <tr title="Vis organisationens stamkort...">
+                <td> 
+                    <ng-template [ngIf]="data.DL_Add==1">
+                        Slet LO-DA flag
+                    </ng-template>
+                    <ng-template [ngIf]="data.DL_Add!=1">
+                        Opret LO-DA flag
+                    </ng-template>
+                 </td>
+                 <td><a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>
+                     
+                         <ng-template [ngIf]="data.DL_Add==1">
+                             Slet LO-DA flag
+                         </ng-template>
+                         <ng-template [ngIf]="data.DL_Add!=1">
+                             Opret LO-DA flag
+                         </ng-template>
+                     </a></td>
+            </tr>
+            <tr>
+                <td>Oprettet af:</td>
+                <td> {{data.DL_CreatedBy}}</td>
+            </tr>
+            <tr>
+                <td>Ændret af:</td>
+                <td> {{data.DL_ModifiedBy}}</td>
+            </tr>
+                    
+        </tbody>
+    </table>
 </div>
- 

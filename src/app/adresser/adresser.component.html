@@ -1,28 +1,68 @@
-﻿ 
+﻿
+<div class="portlet-body">
+    <table class="table table-striped table-bordered table-advance table-hover">
 
-<div>
- 
-  <table class="table table-user-information table t" style="width:100%">
-    <tbody>
-      <tr> 
-        <td>
-          <a>
-            <i class="btn-danger glyphicon glyphicon-remove"></i>
-          </a>
-        </td>
-        <td>
-          <a>
-            <i class="btn-primary glyphicon glyphicon-print"></i>
-          </a>
-        </td>
-        <td><a href="#">
-              {{data.DL_Title}}
-            </a>
-        </td>
-      </tr>
-     
-      
-    </tbody>
-  </table>
+        <tbody>
 
+            <tr>
+                <td style="width:5%">
+                    <a>
+                        <i class="btn-danger glyphicon glyphicon-remove"></i>
+                    </a>
+                </td>
+                <td style="width:5%">
+                    <a>
+                        <i class="btn-primary glyphicon glyphicon-print"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        {{data.DL_Title}}
+                    </a>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td title="Vis organisationens stamkort...">
+                    Organisation
+                </td>
+                <td class="hidden-xs">
+                    <ng-template [ngIf]="data.DL_OrganisationShort">
+                        {{data.DL_OrganisationShort}}/
+                    </ng-template>
+                    <a href='javascript:loadentity("{{webPart.DL_View}}","{{data.DL_Id}}")'>{{data.DL_OrganisationTitle}}</a>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
 </div>
+            <div>
+
+                <table class="table table-user-information table t" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a>
+                                    <i class="btn-danger glyphicon glyphicon-remove"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a>
+                                    <i class="btn-primary glyphicon glyphicon-print"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="#">
+                                    {{data.DL_Title}}
+                                </a>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>

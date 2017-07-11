@@ -14,6 +14,7 @@ export class UnderorganisationerComponent implements OnInit {
     apiUrl: string;
     data: any = [];
     @Input() webPart: DynamicPage;
+    loading: boolean;
     constructor(private http: Http) {
 
     }
@@ -29,7 +30,7 @@ export class UnderorganisationerComponent implements OnInit {
         return this.http.get(this.apiUrl).map((res: Response) => res.json());
     }
     getUnderOrganization() {
-        console.log(this.apiUrl);
+        this.loading = false;
         this.getData().subscribe(data => {
             if (data.DL_ENTITYDATA) {
                 this.data = data.DL_ENTITYDATA[this.webPart.DL_View];

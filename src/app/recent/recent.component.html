@@ -1,14 +1,15 @@
 ﻿ 
- <app-progressbar [loading]="loading"></app-progressbar>
-    <table class="table table-user-information table t" style="width:100%:">
-       
-      <tbody>
-        
-        <tr *ngFor="let row of data"> 
-        <td><a (click)="goToObject(webPart.DL_Action)">{{row[webPart.DL_Column1]}}</a></td>
-          <ng-template [ngIf]="webPart.DL_Column2">
-            <td><a href="">{{row[webPart.DL_Column2]}}</a></td>
-          </ng-template>
-        </tr>  
-        </tbody>
-</table> 
+ <app-progressbar [(loading)]="loading"></app-progressbar>
+ 
+    <table class="no-border">
+
+        <tr *ngFor="let row of data | slice:0:9" class="list-group-item text-right">
+            <td> <a href="#" class="pull-left" (click)="goToObject(webPart.DL_Action)">{{row[webPart.DL_Column1]}}</a></td>
+
+            <ng-template [ngIf]="webPart.DL_Column2">
+                <td class="right">  <a href="#" (click)="goToObject(webPart.DL_Action)">{{row[webPart.DL_Column2]}}</a></td>
+            </ng-template> 
+        </tr>
+
+    </table>  
+

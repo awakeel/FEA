@@ -1,10 +1,10 @@
-import { FeaWebappPage } from './app.po';
+import { FeaDynamicPage } from './app.po';
 
-describe('fea-webapp App', () => {
-  let page: FeaWebappPage;
+describe('fea-dynamic App', () => {
+  let page: FeaDynamicPage;
 
   beforeEach(() => {
-    page = new FeaWebappPage();
+    page = new FeaDynamicPage();
   });
 
   it('should display welcome message', () => {
