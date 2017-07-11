@@ -64,7 +64,7 @@
 
                 "DL_PageID": "1",
                 "DL_WebPart": "Adresser",
-                "DL_WebPartType": "detail",
+                "DL_WebPartType": "List",
                 "DL_Zone": "Left",
                 "DL_View": "DL_OrganisationAddressView",
                 "DL_Where": "DL_Organisation=%DL_Id%",
@@ -74,8 +74,7 @@
                 "DL_Action2": "EXGotoObject(\"DL_Organisation\",DL_Id)",
                 "DL_ActionIcon1": "fa fa-plus",
                 "DL_ActionIcon2": "fa fa-minus",
-              "DL_PageTemplate": "3-col",
-              "DL_ComponentName": "app-adresser"
+                "DL_PageTemplate": "3-col"
             },
             {
                 "DL_Page": "organization.html",
@@ -90,6 +89,42 @@
                 "DL_OrderBy": "DL_IsPrimaryAddress DESC",
                 "DL_Column1": "DL_Title",
                 "DL_Column2": "DL_CaseNo",
+                "DL_Action2": "EXGotoObject(\"DL_Organisation\",DL_Id)",
+                "DL_ActionIcon1": "fa fa-plus",
+                "DL_ActionIcon2": "fa fa-minus",
+                "DL_PageTemplate": "3-col"
+            },
+            {
+                "DL_Page": "fea.html",
+                "DL_PageTitle": "FEA",
+
+                "DL_PageID": "1",
+                "DL_WebPart": "Person",
+                "DL_WebPartType": "List",
+                "DL_Zone": "Left",
+                "DL_View": "DL_OrganisationPersonView",
+                "DL_Where": "DL_Organisation=%DL_Id%",
+                "DL_OrderBy": "DL_IsPrimaryAddress DESC",
+                "DL_Column1": "DL_Name",
+                "DL_Column2": null,
+                "DL_Action2": "EXGotoObject(\"DL_Organisation\",DL_Id)",
+                "DL_ActionIcon1": "fa fa-plus",
+                "DL_ActionIcon2": "fa fa-minus",
+                "DL_PageTemplate": "3-col"
+            },
+            {
+                "DL_Page": "fea.html",
+                "DL_PageTitle": "FEA",
+
+                "DL_PageID": "1",
+                "DL_WebPart": "Org Org View",
+                "DL_WebPartType": "List",
+                "DL_Zone": "Left",
+                "DL_View": "DL_OrganisationOrganisationView",
+                "DL_Where": "DL_Organisation=%DL_Id%",
+                "DL_OrderBy": "DL_IsPrimaryAddress DESC",
+                "DL_Column1": "DL_Title",
+                "DL_Column2": "DL_OrganisationType",
                 "DL_Action2": "EXGotoObject(\"DL_Organisation\",DL_Id)",
                 "DL_ActionIcon1": "fa fa-plus",
                 "DL_ActionIcon2": "fa fa-minus",

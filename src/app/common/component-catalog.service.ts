@@ -1,12 +1,11 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { DynamicListComponent } from '../dynamic-list/';
 import { DynamicFormComponent } from '../dynamic-form';
 import { DynamicDetailComponent } from '../dynamic-detail';
 import { OrganizationComponent } from '../organization';
-import { AdresserComponent } from '../adresser';
 import { Widget } from './webpart.item';
-import { Http ,URLSearchParams} from '@angular/http';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import './rxjs-extensions';
 import { EntityBase, DLCMSView } from '../models';
@@ -17,15 +16,13 @@ const local: boolean = environment.local;
 
 @Injectable()
 export class ComponentCatalogService {
-    private metaDataAPI: string;
-    urlParams: URLSearchParams;
+  private metaDataAPI: string;
+
   constructor(private http: Http) {
     if (local) {
       this.metaDataAPI = '../../assets/dataNEW.json'
     } else {
-        this.urlParams = new URLSearchParams(window.location.search);
-        const page = this.urlParams.get('page');
-        this.metaDataAPI = metaDataAPI + "/?&Where=DL_PageTitle='" + page+"'";
+      this.metaDataAPI = metaDataAPI;
     }
   }
 
@@ -47,13 +44,11 @@ export class ComponentCatalogService {
       case 'list':
         return new Widget(DynamicListComponent, d);
       case 'detail':
-            if (d.DL_ComponentName === 'app-organization') {
-                return new Widget(OrganizationComponent, d);
-            } else if (d.DL_ComponentName == "app-adresser") {
-                return new Widget(AdresserComponent, d);  
-            } else {
-            return new Widget(DynamicDetailComponent, d);
-           }
+        if (d.DL_ComponentName === 'app-organization') {
+          return new Widget(OrganizationComponent, d);
+        } else {
+          return new Widget(DynamicDetailComponent, d);
+        }
 
       case 'form':
         return new Widget(DynamicFormComponent, d);

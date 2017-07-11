@@ -1,0 +1,15 @@
+<span class="float-right">
+          <ul class="navbar-nav ml-auto mt-2 mt-md-0">
+          <li *ngIf="isMenuLoaded" class="nav-item dropdown" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <b class="caret"></b>
+                    </a>
+                    <div  class="dropdown-menu dropdown-menu-right">
+
+                       <a  class="dropdown-item" *ngFor="let m of menuData" (click)="onClick(m['DL_Action'])"  >
+                        <img [src]="m[DL_TableIcon]" alt=""> {{m['DL_Title']}}
+                       </a>
+                    </div>
+                </li>
+          </ul>
+</span>
