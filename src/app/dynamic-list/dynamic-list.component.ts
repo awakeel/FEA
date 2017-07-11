@@ -1,17 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+﻿import { Component, Input, OnInit } from '@angular/core';
+import { Http, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import '../rxjs-extensions';
-import { WebpartComponent } from '../webpart';
-import { DynamicListService } from './dynamic-list.service';
-import { DLCMSView } from '../model';
+import '../common/rxjs-extensions';
+import { WebpartComponent } from '../common';
+
+import { DLCMSView } from '../models';
 import { environment } from '../../environments/environment';
 const baseDataAPI: string = environment.dataAPI;
+const actionAPI: string = environment.actionAPI;
 @Component({
   selector: 'app-dynamic-list',
   templateUrl: './dynamic-list.component.html',
   styleUrls: ['./dynamic-list.component.css'],
-  providers: [DynamicListService]
+
 })
 export class DynamicListComponent implements WebpartComponent, OnInit {
 
@@ -20,18 +21,20 @@ export class DynamicListComponent implements WebpartComponent, OnInit {
 
   private entityData: any[] = [];
   private menuData: any[] = [];
-  private isDataLoaded: boolean;
-  private isMenuLoaded: boolean;
+  public isDataLoaded: boolean;
+  public isMenuLoaded: boolean;
 
-  constructor(private http: Http, private listService: DynamicListService) {
+  urlParams: URLSearchParams;
+
+  constructor(private http: Http) {
     this.isDataLoaded = false;
     this.isMenuLoaded = false;
     // this.listService.getData();
   }
 
   ngOnInit() {
-    const params = new URLSearchParams(window.location.search);
-    const where = this.data.DL_Where.replace('%DL_Id%', params.get('DL_Id'));
+    this.urlParams = new URLSearchParams(window.location.search);
+    const where = this.data.DL_Where.replace('%DL_Id%', this.urlParams.get('DL_Id'));
     if (environment.local) {
       // console.log(this.data.DL_View);
       this.apiUrl = '../../assets/organisation.json';
@@ -39,54 +42,71 @@ export class DynamicListComponent implements WebpartComponent, OnInit {
       this.apiUrl = `${baseDataAPI}${this.data.DL_View}/?where=${where}&OrderBy=${this.data.DL_OrderBy}`;
     }
 
-    this.getUnderOrganization();
+     this.getData();
+ 
+
     this.getActionData();
 
   }
   getData() {
-    return this.http.get(this.apiUrl)
+      return this.http.get(this.apiUrl)
       .map(res => res.json())
-      .map(d => d.DL_ENTITYDATA);
-      // .filter(d => d['DL_Title'] !== undefined);
+      .map(d => d.DL_ENTITYDATA)
+      .subscribe(d => {
+        if (d[this.data.DL_View] !== undefined) {
+            this.entityData = d[this.data.DL_View];
+            console.log(this.entityData);
+          this.isDataLoaded = true;
+        }
+      })
   }
 
   getActionData() {
-    this.http.get('../../assets/actions.json')
+      this.menuData = [];
+      this.http.get(actionAPI + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
       .map(res => res.json())
       .map(d => d.DL_ENTITYDATA)
-      .flatMap(m => m['DL_Action'])
-      .filter(m => m['DL_EntityNameForeign'] === this.data['DL_View'])
+          .flatMap(m => m['DL_Action']) 
+      .filter(m => m['DL_EntityNameForeign'] === this.data['DL_Menu'])
       .subscribe(m => {
-        console.log(m['DL_EntityNameForeign']);
+        // console.log(m['DL_EntityNameForeign']);
         if (m['DL_Title'] !== undefined && m['DL_Title'] !== null && m['DL_Title'] !== '') {
-          this.menuData.push(m);
+          m['DL_Action'] = this.sanitizeAndUpdate(m['DL_Action']);
+          this.menuData.push(m); 
           this.isMenuLoaded = true;
         }
       });
   }
-  getUnderOrganization() {
 
-
-      this.getData()
-        .subscribe(d => {
-          console.log(d[this.data.DL_View]);
-          if (d[this.data.DL_View] !== undefined) {
-            this.entityData = d[this.data.DL_View];
-
-            if (this.entityData && this.entityData.length) {
-              console.assert(this.entityData !== undefined, 'passed')
-              // console.log(this.entityData);
-            }
-
-            this.isDataLoaded = true;
-          }
-        })
-
+  sanitizeAndUpdate = (s: string) => {
+    if (s && s !== '') {
+      let ret = '';
+      if (/%/.test(s)) {
+        ret = s.match(/%(.*?)%/)[1];
+      };
+      return ret !== '' ? s.replace(`%${ret}%`, this.urlParams.get(ret)) : '';
+    }
   }
-  doActionOpen() {
-    console.log('menu opened');
+
+  getVisibleColumns = (s) => {
+    if (s && s !== '') {
+      return s.split(',');
+    }
+    console.log(s);
   }
-  doActionClose() {
-    console.log('menu closed');
+  gotoObjectWrapper(func: string, id) {
+       const i = func.indexOf(',');
+      const s = func.substr(i + 1, func.length - i - 2)
+      const fn = new Function(func.replace(s, id));
+      
+      if (window.event)
+          window.event.preventDefault();
+      fn();
+     
+      return false;
+  }
+  public isArray = (data) => {
+      return (Object.prototype.toString.call(data) === '[object Array]');
   }
 }
+

@@ -1,3 +1,7 @@
-h3 {
+﻿h3 {
     color: royalblue
+}
+ 
+.table tr td {
+  border-top: none;
 }

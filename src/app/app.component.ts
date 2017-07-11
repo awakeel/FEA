@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+﻿import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
 import { DynamicPageComponent } from './dynamic-page';
 
 
@@ -15,16 +15,16 @@ export class AppComponent implements OnInit {
   /**
    * constructor
    */
-  constructor(public router: Router) {
-    router.resetConfig([
-      {
-        path: '', component: AppComponent, children: [
-          { path: 'org', component: DynamicPageComponent },
-          { path: 'page1', component: DynamicPageComponent },
-          { path: 'page2', component: DynamicPageComponent }
-        ]
-      }
-    ]);
+  constructor(/*public router: Router*/) {
+    // router.resetConfig([
+    //   {
+    //     path: '', component: AppComponent, children: [
+    //       { path: 'org', component: DynamicPageComponent },
+    //       { path: 'page1', component: DynamicPageComponent },
+    //       { path: 'page2', component: DynamicPageComponent }
+    //     ]
+    //   }
+    // ]);
   }
 
   ngOnInit() {

@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\adresser",
-    "\\src\\app\\organization",
-    "\\src\\app\\progressbar",
-    "\\src\\app\\recent",
-    "\\src\\app\\underorganisationer",
-    "\\src\\assets",
-    "\\src\\styles"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\component-metadata.service.ts",
+  "SelectedNode": "\\karma.conf.js",
   "PreviewInSolutionExplorer": false
 }
