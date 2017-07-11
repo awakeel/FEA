@@ -1,10 +1,10 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router'
-import { ComponentCatalogService } from '../component-catalog.service';
-import { Widget } from '../webpart.item';
-import { CMS, DLPage } from '../model';
+// import { ActivatedRoute, Route } from '@angular/router'
+import { ComponentCatalogService } from '../common';
+import { Widget } from '../common';
+import { DLPage } from '../models';
 import { Observable } from 'rxjs/Rx';
-import '../rxjs-extensions';
+import '../common/rxjs-extensions';
 import { DynamicListComponent } from '../dynamic-list';
 import { DynamicFormComponent } from '../dynamic-form';
 import { DynamicDetailComponent } from '../dynamic-detail';
@@ -23,14 +23,14 @@ export class DynamicPageComponent implements OnInit {
 
   private obs: Observable<Widget>;
 
-  constructor(private route: ActivatedRoute, private componentCatalogService: ComponentCatalogService) {
+  constructor( /* private route: ActivatedRoute,*/ private componentCatalogService: ComponentCatalogService) {
     this.currentPage = 'default';
     this.isDataAvailable = false;
-    setTimeout(() => {
-      this.route.params.subscribe(p => {
-        this.currentPage = p['page'];
-      });
-    }, 0);
+    // setTimeout(() => {
+    //   this.route.params.subscribe(p => {
+    //     this.currentPage = p['page'];
+    //   });
+    // }, 0);
     this.obs = this.componentCatalogService.getWidgetsByPage('');
   }
 

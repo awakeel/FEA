@@ -40,7 +40,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-<<<<<<< HEAD
-node_modules/
-=======
->>>>>>> 36c7a0ccb9446250efc5f44df2f7d8706efe0d91

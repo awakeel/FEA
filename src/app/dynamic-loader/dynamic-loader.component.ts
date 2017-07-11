@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
-import { PlaceholderDirective } from '../placeholder.directive';
-import { WebpartComponent } from '../webpart';
-import { Widget } from '../webpart.item'
+import { PlaceholderDirective } from '../common';
+import { WebpartComponent, Widget } from '../common';
+
 
 @Component({
   selector: 'app-dynamic-loader',

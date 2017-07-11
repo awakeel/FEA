@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import '../../rxjs-extensions';
+import '../../common/rxjs-extensions';
 
 @Component({
   selector: 'app-webpart-dd-menu',

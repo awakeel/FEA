@@ -44,7 +44,7 @@
 
                 "DL_PageID": "1",
                 "DL_WebPart": "Organisation",
-                "DL_WebPartType": "List",
+                "DL_WebPartType": "Detail",
                 "DL_Zone": "Left",
                 "DL_View": "DL_OrganisationView",
                 "DL_Where": "DL_Id=%DL_Id%",
@@ -55,7 +55,8 @@
                 "DL_Action2": "EXGotoObject(\"DL_Organisation\",DL_Id)",
                 "DL_ActionIcon1": "fa fa-plus",
                 "DL_ActionIcon2": "fa fa-minus",
-                "DL_PageTemplate": "3-col"
+                "DL_PageTemplate": "3-col",
+                "DL_ComponentName": "app-organization"
             },
             {
                 "DL_Page": "organization.html",
@@ -63,7 +64,7 @@
 
                 "DL_PageID": "1",
                 "DL_WebPart": "Adresser",
-                "DL_WebPartType": "List",
+                "DL_WebPartType": "detail",
                 "DL_Zone": "Left",
                 "DL_View": "DL_OrganisationAddressView",
                 "DL_Where": "DL_Organisation=%DL_Id%",
@@ -73,7 +74,8 @@
                 "DL_Action2": "EXGotoObject(\"DL_Organisation\",DL_Id)",
                 "DL_ActionIcon1": "fa fa-plus",
                 "DL_ActionIcon2": "fa fa-minus",
-                "DL_PageTemplate": "3-col"
+              "DL_PageTemplate": "3-col",
+              "DL_ComponentName": "app-adresser"
             },
             {
                 "DL_Page": "organization.html",

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {WebpartComponent} from '../webpart'
+import { WebpartComponent, Widget } from '../common'
 
 @Component({
   selector: 'app-dynamic-detail',
