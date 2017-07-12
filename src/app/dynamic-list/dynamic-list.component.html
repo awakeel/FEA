@@ -1,6 +1,6 @@
 ﻿<div class="card mb-3">
     <div class="card-header"><span style="float:left">{{data.DL_WebPart}}</span>
-            <app-dropdown-menu #dd [dataEntityName]="data.DL_View" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
+            <app-dropdown-menu #dd [dataEntityName]="data.DL_Menu" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
     </div>
     <div class=" table-responsive">
       <table *ngIf="isDataLoaded" class="table">

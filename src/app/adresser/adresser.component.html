@@ -2,23 +2,7 @@
 <div class="card mb-3">
   <div class="card-header">
     <span style="float:left">{{data.DL_WebPart}}</span>
-    <span class="float-right">
-      <ul class="navbar-nav ml-auto mt-2 mt-md-0">
-        <li *ngIf="isMenuLoaded" class="nav-item dropdown" ngbDropdown>
-          <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-            <b class="caret"></b>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
-
-            <a class="dropdown-item" *ngFor="let m of menuData" href="{{m['DL_Action']}}">
-              <img src="m[DL_TableIcon]" alt=""> {{m['DL_Title']}}
-            </a>
-
-
-          </div>
-        </li>
-      </ul>
-    </span>
+    <app-dropdown-menu #dd [dataEntityName]="data.DL_Menu" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
   </div>
   <div class="card-block table-responsive">
     <table class="table table-user-information table t" style="width:100%">

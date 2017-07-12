@@ -2,7 +2,7 @@
 <div class="card mb-3">
   <div class="card-header">
     <span style="float:float-left">{{data.DL_WebPart}}</span>
-      <app-dropdown-menu #dd [dataEntityName]="data.DL_View" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
+      <app-dropdown-menu #dd [dataEntityName]="data.DL_Menu" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
   </div>
     <div class="card-block table-responsive">
         <p title="Vis organisationens stamkort...">
@@ -50,7 +50,5 @@
         <p>
             <b>Ændret af:</b> {{entityData.DL_ModifiedBy | extractNameFromADUserName}}
         </p>
-    </div>
-
-  <IFRAME name=I1 width="100%" onload="resizeIframe(this)" id=DL_Information src="" style="height:0px;" frameBorder=0 scrolling=auto></IFRAME>
+    </div> 
 

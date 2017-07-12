@@ -9,5 +9,5 @@ export const environment = {
     dataAPI: 'http://..',
     actionsAPI: '',
     local: true,
-    menuIconURL:'/EX_Resources/gif/../../EX_Custom/gif/16X16/'
+    menuIconURL:'/EX_Resources/gif/16X16/'
 };

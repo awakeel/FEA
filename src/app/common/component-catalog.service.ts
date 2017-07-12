@@ -3,6 +3,7 @@
 import { DynamicListComponent } from '../dynamic-list/';
 import { DynamicFormComponent } from '../dynamic-form';
 import { DynamicDetailComponent } from '../dynamic-detail';
+import { DynamicIframeComponent } from '../dynamic-iframe';
 import { OrganizationComponent } from '../organization';
 import { AdresserComponent } from '../adresser';
 import { Widget } from './webpart.item';
@@ -51,6 +52,8 @@ export class ComponentCatalogService {
                 return new Widget(OrganizationComponent, d);
             } else if (d.DL_ComponentName == "app-adresser") {
                 return new Widget(AdresserComponent, d);  
+            } else if (d.DL_ComponentName === 'DynamicIframeWidget') {
+                return new Widget(DynamicIframeComponent, d);
             } else {
             return new Widget(DynamicDetailComponent, d);
            }

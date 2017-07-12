@@ -67,7 +67,7 @@ export class DynamicListComponent implements WebpartComponent, OnInit {
 
   getActionData() {
       this.menuData = [];
-      this.http.get(actionAPI + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
+      this.http.get(actionAPI)// + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
       .map(res => res.json())
       .map(d => d.DL_ENTITYDATA)
           .flatMap(m => m['DL_Action']) 

@@ -57,9 +57,7 @@ export class DropdownMenuComponent implements AfterViewInit, OnDestroy {
   onClick(event) {
     this.menuClick.emit(event);
   }
-  makeURL(icon) {
-      return menuIconURL + icon;
-  }
+  
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

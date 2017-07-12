@@ -1,9 +1,9 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input ,Output, EventEmitter, ViewChild} from '@angular/core';
 import { Http, Response, URLSearchParams } from '@angular/http';
 import { ComponentCatalogService, WebpartComponent } from '../common';
 import { DLCMSView } from '../models'
 import { environment } from '../../environments/environment';
-
+import { DropdownMenuComponent } from '../common/dropdown-menu';
 const baseUrl: string = environment.dataAPI;
 const actionAPI: string = environment.actionsAPI;
 
@@ -13,6 +13,7 @@ const actionAPI: string = environment.actionsAPI;
     styleUrls: ['./adresser.component.css']
 })
 export class AdresserComponent implements WebpartComponent, OnInit {
+    @ViewChild(DropdownMenuComponent) public dd: DropdownMenuComponent;
     @Input() data: any
     private apiUrl;
     entityData: any = [];
@@ -45,7 +46,7 @@ export class AdresserComponent implements WebpartComponent, OnInit {
     }
 
     getActionData() {
-        this.http.get(actionAPI + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
+        this.http.get(actionAPI)// + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
             .map(res => res.json())
             .map(d => d.DL_ENTITYDATA)
             .flatMap(m => m['DL_Action'])
