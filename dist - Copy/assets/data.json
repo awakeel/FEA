@@ -1,0 +1,96 @@
+{
+    "pages": [{
+        "DL_Page": "organization.html",
+        "DL_PageTitle": "Organization",
+        "DL_PageTemplate": "3-col",
+        "w": [{
+            "DL_WebPart": "Recent",
+            "DL_WebPartType": "List",
+            "DL_Zone": "Left",
+            "DL_View": "DL_OrganistionRecent",
+            "DL_Where": "DL_ModifiedBy=%WUSER%",
+            "DL_OrderBy": "DL_Modified dESC",
+            "DL_Column1": "DL_Title",
+            "DL_Column2": "DL_CaseNo",
+            "DL_Action1": "EXGotoObject(\"DL_Organisation\",DL_Id)",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "Organisation",
+            "DL_WebPartType": "Detail",
+            "DL_Zone": "Center",
+            "DL_View": "DL_OrganisationView",
+            "DL_Where": "DL_Id=%DL_Id%",
+            "DL_OrderBy": "DL_Modified dESC",
+            "DL_Column1": "",
+            "DL_Column2": "",
+            "DL_Action1": "EXGotoObject(\"DL_Organisation\",DL_Id)",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "Adresser",
+            "DL_WebPartType": "List",
+            "DL_Zone": "Center",
+            "DL_View": "DL_OrganisationAddressView",
+            "DL_Where": "DL_Organisation=%DL_Id%",
+            "DL_OrderBy": "DL_IsPrimaryAddress DESC",
+            "DL_Column1": "DL_Title",
+            "DL_Column2": "DL_CaseNo",
+            "DL_Action1": "",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "Recent1",
+            "DL_WebPartType": "List",
+            "DL_Zone": "Left",
+            "DL_View": "DL_OrganistionRecent",
+            "DL_Where": "DL_ModifiedBy=%WUSER%",
+            "DL_OrderBy": "DL_Modified dESC",
+            "DL_Column1": "DL_Title",
+            "DL_Column2": "DL_CaseNo",
+            "DL_Action1": "EXGotoObject(\"DL_Organisation\",DL_Id)",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "Organisation1",
+            "DL_WebPartType": "Form",
+            "DL_Zone": "Center",
+            "DL_View": "DL_OrganisationView",
+            "DL_Where": "DL_Id=%DL_Id%",
+            "DL_OrderBy": "DL_Modified dESC",
+            "DL_Column1": "",
+            "DL_Column2": "",
+            "DL_Action1": "EXGotoObject(\"DL_Organisation\",DL_Id)",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "Adresser1",
+            "DL_WebPartType": "List",
+            "DL_Zone": "Right",
+            "DL_View": "DL_OrganisationAddressView",
+            "DL_Where": "DL_Organisation=%DL_Id%",
+            "DL_OrderBy": "DL_IsPrimaryAddress DESC",
+            "DL_Column1": "DL_Title",
+            "DL_Column2": "DL_CaseNo",
+            "DL_Action1": "",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "My Meetings",
+            "DL_WebPartType": "Detail",
+            "DL_Zone": "Right",
+            "DL_View": "DL_OrganisationAddressView",
+            "DL_Where": "DL_Organisation=%DL_Id%",
+            "DL_OrderBy": "DL_IsPrimaryAddress DESC",
+            "DL_Column1": "DL_Title",
+            "DL_Column2": "DL_CaseNo",
+            "DL_Action1": "",
+            "DL_Action2": ""
+        }, {
+            "DL_WebPart": "Useful links",
+            "DL_WebPartType": "List",
+            "DL_Zone": "Right",
+            "DL_View": "DL_OrganisationAddressView",
+            "DL_Where": "DL_Organisation=%DL_Id%",
+            "DL_OrderBy": "DL_IsPrimaryAddress DESC",
+            "DL_Column1": "DL_Title",
+            "DL_Column2": "DL_CaseNo",
+            "DL_Action1": "",
+            "DL_Action2": ""
+        }]
+    }]
+}

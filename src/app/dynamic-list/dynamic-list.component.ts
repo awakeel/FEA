@@ -46,78 +46,83 @@ export class DynamicListComponent implements WebpartComponent, OnInit {
       this.apiUrl = `${baseDataAPI}${this.data.DL_View}/?where=${where}&OrderBy=${this.data.DL_OrderBy}`;
     }
 
-     this.getData();
- 
+    this.loadData();
 
-    this.getActionData();
 
   }
   getData() {
+
+      const count = 5;
       return this.http.get(this.apiUrl)
-      .map(res => res.json())
-      .map(d => d.DL_ENTITYDATA)
-      .subscribe(d => {
-        if (d[this.data.DL_View] !== undefined) {
-            this.entityData = d[this.data.DL_View];
-            console.log(this.entityData);
-          this.isDataLoaded = true;
-        }
-      })
+          .map(res => res.json())
+          .map(d => d.DL_ENTITYDATA)
+          .flatMap(d => {
+              if (d[this.data.DL_View] !== undefined) {
+                  console.log(d[this.data.DL_View.trim()]);
+                  return this.isArray(d[this.data.DL_View.trim()])
+                      ? d[this.data.DL_View.trim()] : [d[this.data.DL_View.trim()]];
+              }
+          })
+      // .take(count)
+      // .distinctUntilChanged();
   }
 
-  getActionData() {
-      this.menuData = [];
-      this.http.get(actionAPI)// + "?&where=DL_EntityNameForeign='" + this.data.DL_Menu + "'")
-      .map(res => res.json())
-      .map(d => d.DL_ENTITYDATA)
-          .flatMap(m => m['DL_Action']) 
-      .filter(m => m['DL_EntityNameForeign'] === this.data['DL_Menu'])
-      .subscribe(m => {
-        // console.log(m['DL_EntityNameForeign']);
-        if (m['DL_Title'] !== undefined && m['DL_Title'] !== null && m['DL_Title'] !== '') {
-          m['DL_Action'] = this.sanitizeAndUpdate(m['DL_Action']);
-          this.menuData.push(m); 
-          this.isMenuLoaded = true;
-        }
-      });
+  loadData() {
+      this.getData()
+          .subscribe(d => {
+              this.entityData.push(d);
+              this.isDataLoaded = true;
+          })
   }
 
-  sanitizeAndUpdate = (s: string) => {
-    if (s && s !== '') {
-      let ret = '';
-      if (/%/.test(s)) {
-        ret = s.match(/%(.*?)%/)[1];
-      };
-      return ret !== '' ? s.replace(`%${ret}%`, this.urlParams.get(ret)) : '';
-    }
-  }
 
   getVisibleColumns = (s) => {
-    if (s && s !== '') {
-      return s.split(',');
-    }
-    console.log(s);
+      if (s && s !== '') {
+          return s.split(',');
+      }
+      console.log(s);
   }
-  gotoObjectWrapper(func: string, id) {
-       const i = func.indexOf(',');
-      const s = func.substr(i + 1, func.length - i - 2)
-      const fn = new Function(func.replace(s, id));
-      
-      if (window.event)
+  gotoObjectWrapper(func: string, item) {
+      console.log(func);
+
+      if (func.indexOf(',') > -1) {
+
+          func.split(',').forEach((e, i) => {
+              if (i > 0) {
+                  if (e.indexOf(')') > -1) {
+                      const s = e.replace(')', '').trim();
+                      func = func.replace(s, item[s]);
+                  } else {
+                      func = func.replace(e, item[e]);
+                  }
+              }
+          })
+      }
+
+      console.log(func);
+      const fn = new Function(func);
+
+      if (window.event) {
           window.event.preventDefault();
+      }
       fn();
-     
+
       return false;
   }
   onMenuClick(event) {
-           console.log(event);
-         if (event) {
-             const fn = new Function(event);
-           return fn();
-            }
+      console.clear();
+      console.log(event);
+      if (event) {
+          const fn = new Function(event);
+          return fn();
+      }
   }
-  public isArray = (data) => {
+  refresh() {
+      console.clear();
+      this.getData();
+
+  }
+  isArray = (data) => {
       return (Object.prototype.toString.call(data) === '[object Array]');
   }
 }
-

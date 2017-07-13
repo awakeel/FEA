@@ -1,6 +1,7 @@
 ﻿<div class="card mb-3">
     <div class="card-header"><span style="float:left">{{data.DL_WebPart}}</span>
             <app-dropdown-menu #dd [dataEntityName]="data.DL_Menu" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
+             <span style="float:right"> <a class="nav-link" (click)="refresh()"><i class="fa fa-refresh"></i></a></span>
     </div>
     <div class=" table-responsive">
       <table *ngIf="isDataLoaded" class="table">
@@ -10,19 +11,25 @@
           <ng-template [ngIf]="isArray(entityData)">
             <tr *ngFor="let row of entityData">
 
-              <td><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row['DL_Id'])">{{row[data.DL_Column1.trim()]}}</a></td>
+              <td><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">{{row[data.DL_Column1.trim()]}}</a></td>
               <ng-template [ngIf]="data.DL_Column2">
-                <td><a href="#"   (click)="gotoObjectWrapper(data.DL_Action2.trim(),row['DL_Id'])">{{row[data.DL_Column2.trim()]}}</a></td>
+                <td><a href="#"   (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">{{row[data.DL_Column2.trim()]}}</a></td>
+              </ng-template>
+              <ng-template [ngIf]="data.DL_Column3">
+                <td><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">{{row[data.DL_Column3.trim()]}}</a></td>
               </ng-template>
             </tr>
           </ng-template>
           <ng-template [ngIf]="!isArray(entityData)">
             <tr>
               <td>
-                <a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),entityData['DL_Id'])">{{entityData[data.DL_Column1.trim()]}}</a>
+                <a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">{{entityData[data.DL_Column1.trim()]}}</a>
               </td>
               <ng-template [ngIf]="data.DL_Column2">
-                <td><a href="#" (click)="gotoObjectWrapper(data.DL_Action2.trim(),entityData['DL_Id'])">{{entityData[data.DL_Column2.trim()]}}</a></td>
+                <td><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">{{entityData[data.DL_Column2.trim()]}}</a></td>
+              </ng-template>
+              <ng-template [ngIf]="data.DL_Column3">
+                <td><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">{{entityData[data.DL_Column3.trim()]}}</a></td>
               </ng-template>
             </tr>
           </ng-template>

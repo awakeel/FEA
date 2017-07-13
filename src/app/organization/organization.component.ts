@@ -82,4 +82,14 @@ export class OrganizationComponent implements WebpartComponent, OnInit {
       return ret !== '' ? s.replace(`%${ret}%`, this.urlParams.get(ret)) : '';
     }
   }
+  loadFunction(id) {
+      new Function("loadentity('DL_Organisation', " + id + ")")(); 
+      if (window.event) window.event.stopPropagation();
+      return false;
+  }
+  setEntity(id, value) { 
+      new Function("SetEntityItemValue('DL_Organisation', " + id + ",'','DL_Add', "+value+")")(); 
+      if (window.event) window.event.stopPropagation();
+      return false; 
+  }
 }

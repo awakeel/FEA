@@ -38,7 +38,7 @@ export class DropdownMenuComponent implements AfterViewInit, OnDestroy {
 
         if (m['DL_Title']) {
 
-          m['DL_Action'] = this.sanitizeAndUpdate(m['DL_Action']);
+            m['DL_Action'] = m['DL_Action']; //this.sanitizeAndUpdate(m['DL_Action']);
           this.menuData.push(m);
           this.isMenuLoaded = true;
         }
@@ -54,8 +54,17 @@ export class DropdownMenuComponent implements AfterViewInit, OnDestroy {
       return ret !== '' ? s.replace(`%${ret}%`, this.urlParams.get(ret)) : '';
     }
   }
-  onClick(event) {
-    this.menuClick.emit(event);
+  onClick(event) {  
+      let res = event;
+      console.log(res);
+      if (event.indexOf(";") > -1) {
+          res = event.split(";")[0];
+      }
+      if (res.indexOf(":") > -1) {
+          res = res.split(":")[1];
+      }
+      console.log(res);
+      this.menuClick.emit(res);
   }
   
   ngOnDestroy() {

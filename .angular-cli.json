@@ -1,4 +1,4 @@
-{
+﻿{
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
         "name": "fea-dynamic"
@@ -21,7 +21,7 @@
             "../node_modules/font-awesome/css/font-awesome.css",
             "styles/app.scss"
         ],
-        "scripts": [],
+      "scripts": [ "./jquery.js", "./exformatics.js", "./EXNewDocument.js", "./Exformatics_cust.js" ],
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",

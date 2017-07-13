@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+﻿/* You can add global styles to this file, and also import other style files */
 
 @import "bootstrap/bootstrap";
 @import "spinner";
@@ -6,3 +6,25 @@
 @import "rtl";
 @import "responsive";
 @import "webpart";
+
+.card-block {
+  padding: 0.5rem 1.25rem 0rem;
+}
+
+.card-header span:first-child {
+  max-width: 80%;
+  line-height: 18px;
+}
+
+.show > .dropdown-menu {
+  padding: 0;
+}
+
+.dropdown-item {
+  font-size: 13px;
+  padding: 10px 10px;
+}
+
+a.dropdown-item:hover {
+  cursor: pointer;
+}

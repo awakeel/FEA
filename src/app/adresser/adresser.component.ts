@@ -61,13 +61,29 @@ export class AdresserComponent implements WebpartComponent, OnInit {
             });
     }
 
-    gotoObjectWrapper(func: string, id) {
-        const i = func.indexOf(',');
-        const s = func.substr(i + 1, func.length - i - 2)
-        const fn = new Function(func.replace(s, id));
+    gotoObjectWrapper(func: string, item) {
+        console.log(func);
+        let p: any[] = [];
+        if (func.indexOf(',') > -1) {
+            p = func.split(',');
+            p.forEach((e, i) => {
+                if (i > 0) {
+                    if (e.indexOf(')') > -1) {
+                        const s = e.replace(')', '').trim();
+                        func = func.replace(s, item[s]);
+                    } else {
+                        func = func.replace(e, item[e]);
+                    }
+                }
+            })
+        }
 
-        if (window.event)
-            window.event.preventDefault();
+        console.log(func);
+        const fn = new Function(func);
+
+        if (window.event) {
+            window.event.stopPropagation();
+        }
         fn();
 
         return false;
@@ -88,6 +104,31 @@ export class AdresserComponent implements WebpartComponent, OnInit {
             return fn();
         }
     }
+      setPrimary(id) {
+          new Function("LOSetOrganisationAddressPrimary(" + id + ")")();
+          if (window.event) {
+              window.event.preventDefault();
+              window.event.stopPropagation();
+          }
+          return false;
+    }
+      deleteAddress(address) {
+          new Function("FEADeleteAddress(" + this.data.DL_View + ", " + address + ")")(); 
+          if (window.event) {
+              window.event.preventDefault();
+              window.event.stopPropagation();
+          }
+          return false;
+      }
+      createDoc(id) {
+          new Function("EXCreateDoc('DL_OrganisationAddress', "+id+",'http://sagssystem/Administration/Skabeloner/FEA/OrganisationLabel.dot', '', 'DL_OrganisationAddressLabelView', '', '', 1)")(); 
+          if (window.event) { 
+            window.event.preventDefault();
+            window.event.stopPropagation();
+          }
+          return false;
+      }
+      
     public isArray = (data) => {
         return (Object.prototype.toString.call(data) === '[object Array]');
     }

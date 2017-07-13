@@ -1,7 +1,7 @@
 ﻿
 <div class="card mb-3">
   <div class="card-header">
-    <span style="float:float-left">{{data.DL_WebPart}}</span>
+    <span style="float: left">{{data.DL_WebPart}}</span>
       <app-dropdown-menu #dd [dataEntityName]="data.DL_Menu" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
   </div>
     <div class="card-block table-responsive">
@@ -10,7 +10,7 @@
             <ng-template [ngIf]="entityData.DL_OrganisationShort">
                 {{entityData.DL_OrganisationShort}}/
             </ng-template>
-            <a href='javascript:loadentity("{{data.DL_View}}","{{entityData.DL_Id}}")| safeUrl'>{{entityData.DL_OrganisationTitle}}</a>
+            <a  (click)="loadFunction(entityData.DL_Id)">{{entityData.DL_OrganisationTitle}}</a>
         </p>
 
         <ng-template [ngIf]="entityData.DL_OrganisationTitle">
@@ -37,12 +37,15 @@
         <p title="Vis organisationens stamkort...">
             <b>LO-DA tilladt:</b>
             <ng-template [ngIf]="entityData.DL_Add==1">
-                Slet LO-DA flag
+               
+              <a  (click)='setEntity(entityData.DL_Id,0)'> Slet LO-DA flag</a>
             </ng-template>
             <ng-template [ngIf]="entityData.DL_Add!=1">
-                Opret LO-DA flag
+               
+              <a  (click)='setEntity(entityData.DL_Id,1)'> Opret LO-DA flag</a>
             </ng-template>
-            <a href='javascript:loadentity("{{data.DL_View}}","{{entityData.DL_Id}}") | safeUrl'>{{entityData.DL_OrganisationTitle}}</a>
+        
+           
         </p>
         <p>
             <b>Oprettet af:</b> {{entityData.DL_CreatedBy | extractNameFromADUserName}}
@@ -52,3 +55,4 @@
         </p>
     </div> 
 
+  </div>

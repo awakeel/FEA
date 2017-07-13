@@ -5,31 +5,47 @@
     <app-dropdown-menu #dd [dataEntityName]="data.DL_Menu" (menuClick)="onMenuClick($event)"></app-dropdown-menu>
   </div>
   <div class="card-block table-responsive">
-    <table class="table table-user-information table t" style="width:100%">
+    <table  style="width:100%">
       <ng-template [ngIf]="isArray(entityData)">
         <tr *ngFor="let row of entityData">
-          <td title="Lav adressen primær..."><a><img src="/EX_Custom/gif/16x16/address.gif" border="0"></a></td>
-          <ng-template *ngIf="row.DL_IsPrimaryAddress==1">
-            <td title="Lav adressen primær..."><a><img border="0" alt="Slet denne adresse..." src="/EX_Custom/img/12x12/del.gif"></a></td> 
+          <td title="Lav adressen primær..." style="width:5%;"><a  (click)="setPrimary(row.DL_Id)"><img src="/EX_Custom/gif/16x16/address.gif" border="0"></a></td>
+          <ng-template [ngIf]="row.DL_IsPrimaryAddress==1">
+            <td style="width:5%;" title="Lav adressen primær..."><a   (click)="deleteAddress(row.DL_Address)"><img border="0" alt="Slet denne adresse..." src="/EX_Custom/img/12x12/del.gif"></a></td>
           </ng-template>
-         
-          <td title="Lav adressen primær..."><a><img src="/EX_Resources/img/16x16/print.gif" border="0"></a></td> 
-         
-          <td title="Vis adressen..."><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row['DL_Id'])">{{row[data.DL_Column1.trim()]}}<img src="/EX_Custom/img/8x8/favorits.gif" border="0" /></a></td>
-           
-        </tr>
+
+          <td style="width:5%;" title="Lav adressen primær..."><a  (click)="createDoc(row.DL_Id)"><img src="/EX_Resources/img/16x16/print.gif" border="0"></a></td>
+
+          <td title="Vis adressen...">
+            <a  (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)">
+              {{row[data.DL_Column1.trim()]}}
+              <ng-template [ngIf]="row.DL_IsPrimaryAddress==1">
+                <img src="/EX_Custom/img/8x8/favorits.gif" border="0" />
+
+              </ng-template>
+            </a>
+
+          </td>
+
+      </tr>
       </ng-template>
       <ng-template [ngIf]="!isArray(entityData)">
         <tr>
-          <td title="Lav adressen primær..."><a><img src="/EX_Custom/gif/16x16/address.gif" border="0"></a></td>
-          <ng-template *ngIf="entityData.DL_IsPrimaryAddress==1">
-            <td title="Lav adressen primær..."><a><img border="0" alt="Slet denne adresse..." src="/EX_Custom/img/12x12/del.gif"></a></td>
+          <td title="Lav adressen primær..." style="width:5%;"><a  (click)="setPrimary(entityData.DL_Id)"><img src="/EX_Custom/gif/16x16/address.gif" border="0"></a></td>
+          <ng-template [ngIf]="entityData.DL_IsPrimaryAddress==1">
+            <td title="Lav adressen primær..." style="width:5%;"><a    (click)="deleteAddress(entityData.DL_Address)"><img border="0" alt="Slet denne adresse..." src="/EX_Custom/img/12x12/del.gif"></a></td>
           </ng-template>
 
-          <td title="Lav adressen primær..."><a><img src="/EX_Resources/img/16x16/print.gif" border="0"></a></td>
+          <td title="Lav adressen primær..." style="width:5%;"><a   (click)="createDoc(entityData.DL_Id)"><img src="/EX_Resources/img/16x16/print.gif" border="0"></a></td>
 
-          <td title="Vis adressen..."><a href="#" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row['DL_Id'])">{{entityData[data.DL_Column1.trim()]}}<img src="/EX_Custom/img/8x8/favorits.gif" border="0" /></a></td>
+          <td title="Vis adressen...">
+            <a (click)="gotoObjectWrapper(data.DL_Action1.trim(),entityData)"> 
+              {{entityData[data.DL_Column1.trim()]}}
+              <ng-template [ngIf]="entityData.DL_IsPrimaryAddress==1">
+                <img src="/EX_Custom/img/8x8/favorits.gif" border="0" /> 
+              </ng-template>
+            </a>
 
+          </td>
         </tr>
       </ng-template>
     </table>
