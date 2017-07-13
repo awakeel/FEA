@@ -22,6 +22,9 @@
             "styles/app.scss"
         ],
       "scripts": [ "./jquery.js", "./exformatics.js", "./EXNewDocument.js", "./Exformatics_cust.js" ],
+=======
+        "scripts": ["./jquery.min.js", "./exformatics.js"],
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",

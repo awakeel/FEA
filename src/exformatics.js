@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Ôªø/*
+=======
+/*
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 *                                                                  *
 * Exformatics SharePoint 2003, 2007 javascript functions           *
 *                                                                  *
@@ -30,8 +34,13 @@
 // 09-04-2008  mmq   getEntityData3 created.
 // 10-04-2008  mmq   Query modified to use MSSQLFT search - can now search for documents in specific areas
 // 13-04-2008  mmq   Floating Document basket - EXInitMainEntity
+<<<<<<< HEAD
 // 15-04-2008  mmq   Flere justeringer - sm√•fejl - rettet.
 // 19-04-2008  jrd   Lille √¶ndring i EXCloseTask for bagud kompatibilitet
+=======
+// 15-04-2008  mmq   Flere justeringer - smÂfejl - rettet.
+// 19-04-2008  jrd   Lille Êndring i EXCloseTask for bagud kompatibilitet
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 // 23-04-2008  mmq   showAppointment, new javascript and Outlook AddIn function - only if CreatedBy = %WUSER% should be added as criteria!
 // 24-04-2008  mmq   Upgraded CorpNordic - fixed small stuff in JS
 // 29-04-2008  mmq   _EXInitAJAXDocumentBasket function copied from CN
@@ -90,7 +99,11 @@
 // 03-05-2010   mb   Added RemoveOnClick function and updated EXPrintSpecial to remove all onclick's and href's from teh html code.
 // 16-05-2010  mmq   EXXMLHTTP - new function - replaces XMLHTTP
 // 16-05-2010  mmq   XMLHTTP - .Open-.open, .Send-.send, .ResponseXML-.responseXML
+<<<<<<< HEAD
 // 23-05-2010  mmq   Twitter funktionalitet tilf√∏jet - omd√∏bt til Exformatics
+=======
+// 23-05-2010  mmq   Twitter funktionalitet tilf¯jet - omd¯bt til Exformatics
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 // 17-06-2010  mmq   EXInitMainEntity - now using setTimeout in order to increase loading speed - start all functions asap
 // 12-07-2010  mmq   http://intranet moved to Exformatics_cust.js as variable EXServerRoot
 // 15-07-2010  mmq   EXformatValue - DL_Money added and formatted nice
@@ -122,7 +135,11 @@
 // 05-09-2011  mmq   EXWPMenuGet - now supports multiple keypairs
 // 08-09-2011  mmq   DLLinkObject2Object2 added
 // 01-11-2011  mmq   IT_Case 2558
+<<<<<<< HEAD
 // 09-11-2011  mmq   IT_Case 2750 Tilf√∏jet versionstjek
+=======
+// 09-11-2011  mmq   IT_Case 2750 Tilf¯jet versionstjek
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 // 18-11-2011  mmq   IT-Case 2679
 // 15-12-2011  mmq   setCookie - if expires is null then cookies are NOT saved between sessions
 // 21-01-2012  mmq   Set width for DL_Information IFRAME in order to avoid scrollbars
@@ -157,6 +174,7 @@
 // 03-09-2015 tas  Added method resizeIframe to reset height of iframe
 // 06-11-2015  mmq   Use jQuery dialog in EXLoadQuickSearch
 // 14+04+2016  mmq  Add EXWFOpenCasesExcel
+<<<<<<< HEAD
 //Testing purpose new LO angular 4
 var LEX_CannotGotoObjectProbablyNoAccess = 'No access';
 function  goToURL(page, id){
@@ -166,6 +184,10 @@ function resizeIframe(obj) {
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
     document.getElementById("iframeheader").style.display = 'inline-block';
 }
+=======
+
+
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 var iButtonDelete = 1; 	 //   01 - Empty document basket button
 var iButtonNotify = 2; 	 //   02 - Notify document basket
 var iButtonTransmittal = 4;  //   04 - Create transmittal based on document basket
@@ -3611,7 +3633,11 @@ function EXLoadAdvancedSearch(Entity) { // 7.12.2014
     EXGotoUrl(url);
 
 }
+<<<<<<< HEAD
 function EXLoadQuickSearch(Entity, bSearchOnLoad, ForeignKey, ForeignValue, PortalType, bInitMainEntity, sParams) { // 1.9.2008 - bInitMainEntity added - set to true if form should be opened in DL_Information web part // 17.12.2010 - sParams tilf√∏jet
+=======
+function EXLoadQuickSearch(Entity, bSearchOnLoad, ForeignKey, ForeignValue, PortalType, bInitMainEntity, sParams) { // 1.9.2008 - bInitMainEntity added - set to true if form should be opened in DL_Information web part // 17.12.2010 - sParams tilf¯jet
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     if (typeof (sParams) == 'undefined')
         sParams = '';
     if (typeof (PortalType) == 'undefined' || PortalType == null)
@@ -6384,7 +6410,11 @@ function EXCloseTask(DLEntity, DLId, DLModified, bNotApplicable, iApprovalStatus
             oEle = document.getElementById('tr' + DLEntity + DLId); // EXDynWP
         else
             oEle = oEle.parentNode.parentNode.parentNode;
+<<<<<<< HEAD
         if (oEle != null) // 19-04-2008/JRD: Tilf√∏jet if-omkring
+=======
+        if (oEle != null) // 19-04-2008/JRD: Tilf¯jet if-omkring
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         {
             oEle.style.textDecoration = 'line-through';
         }
@@ -6395,7 +6425,11 @@ function EXCloseTask(DLEntity, DLId, DLModified, bNotApplicable, iApprovalStatus
 function EXAssignTaskToCase(DLId) { // 12.5.2008
     alert('EXAssignTaskToCase(' + DLId + ') not implemented yet');
     var xTask = getEntityData('DL_Tasks', 'DL_Id = ' + DLId, '');
+<<<<<<< HEAD
     // 2 drop down lister - een med Sagsgrene - og een med recent objekter - skal det v√¶re muligt at tilf√∏je helt generelt?
+=======
+    // 2 drop down lister - een med Sagsgrene - og een med recent objekter - skal det vÊre muligt at tilf¯je helt generelt?
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 }
 function EXModifyWPTitle(oEle, sText) {
     //alert('EXModifyWPTitle');
@@ -6749,7 +6783,11 @@ function EXInitMainEntity(DLEntity, DLAction, DLEntityIdParam, DLParams, DLTask,
             var sDLWFCaseType = queryString('DLWFCaseType'); // 31.1.2010 - Tele logic
             var sTitle = '';
             if (sDLWFCaseType != '') {
+<<<<<<< HEAD
                 // 11.3.2011 - opret ny sag v√¶lger rigtige objekt
+=======
+                // 11.3.2011 - opret ny sag vÊlger rigtige objekt
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
                 var oCaseType = getEntityData('DL_WFCaseType', 'DL_Id = ' + sDLWFCaseType, '');
                 var DLWFCaseEntityData = getsafe(oCaseType, '//DL_WFCaseEntityData');
                 if (DLWFCaseEntityData != '') { // 29.8.2012 - default values won't work if workflow specific data
@@ -6803,7 +6841,11 @@ function EXInitMainEntity(DLEntity, DLAction, DLEntityIdParam, DLParams, DLTask,
         else {
             //alert('Correct');
             SetRecentValue(DLEntityIdParam, DLId);
+<<<<<<< HEAD
             if (true) { // 19.5.2009 - browserens titel s√¶ttes til sagsnr og sagstitel
+=======
+            if (true) { // 19.5.2009 - browserens titel sÊttes til sagsnr og sagstitel
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
                 //var oXX = getEntityData('DL_CMAllView',"DL_EntityNameForeign = '" + DLEntity + "' AND DL_EntityId=" + DLId,'');
                 var oXX = getEntityData(DLEntity, 'DL_Id=' + DLId, ''); // 7.11.2011 - IT Case 2703 - faster retrieval of title
                 var sTitle, sCaseNo;
@@ -7068,7 +7110,11 @@ function _EXInitAJAXDocumentBasketHeader(DLEntity, DLEntityIdParam, iButtons) { 
             //sHeader = sHeader + '<a href="javascript:EXBRMCreateMail(\'\',\'\',\'DL_sAMAccountName\',0,\'\',false)"><img border="0" alt="' + LEX_MailFromDocumentBasket + '" src="/EX_Resources/gif/16x16/email attachment.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function and alt text
                 sHeader = sHeader + '<a href="javascript:EXDocBasketCreateMail(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'))"><img border="0" alt="' + LEX_MailFromDocumentBasket + '" src="/EX_Resources/gif/16x16/email attachment.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function and alt text
             if (iButtons & 16) // Link
+<<<<<<< HEAD
                 sHeader = sHeader + '<a href="javascript:EXDocBasketToEntity(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'),true)"><img border="0" alt="' + LEX_LinkDocumentsToEntity + '" src="/EX_Resources/gif/16x16/link.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function // 17.9.2008 - true tilf√∏jet
+=======
+                sHeader = sHeader + '<a href="javascript:EXDocBasketToEntity(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'),true)"><img border="0" alt="' + LEX_LinkDocumentsToEntity + '" src="/EX_Resources/gif/16x16/link.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function // 17.9.2008 - true tilf¯jet
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
             //	if (true) // 10.12.2008 - add
             //		sHeader = sHeader + '<a href="javascript:EXDWPNewTask(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'))"><img border="0" alt="' + // LEX_CreateTaskDocBasket  + '" src="/EX_Resources/gif/16x16/Tasks.gif"></img></a>&nbsp;';
             if (iButtons & 32) // Export files
@@ -7110,24 +7156,43 @@ function EXDocBasketCreateMail(DLEntityNameForeign, DLEntityId) { // IT Case 128
 function EXDWPNewTask(DLEntityNameForeign, DLEntityId) { // 19.5.2009
     newentity('DL_Tasks', 'DL_EntityNameForeign,DL_EntityId', DLEntityNameForeign + ',' + DLEntityId, 'Action=546');
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 function EXDocBasketRefresh() { // 26.2.2008
     //EXshowListData('AJAXDocumentBasket','DL_CaseDocuments','DL_ModifiedBy = %WUSER%','DL_Id','img:../../gif/16x16/delete document 1.gif,DL_Title:DL_URLDocument','','','331');
     // 29.3.2009 - image now in right column
     //	var oEle = document.getElementById(sEXAJAXDocBasketDiv);
     //alert('DEBUG\nEXDocBasketRefresh - Div=' + sEXAJAXDocBasketDiv + ' ' + oEle);
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     if (sEXAJAXDocBasketDiv == 'AJAXDocumentBasket')
         EXshowListData(sEXAJAXDocBasketDiv, 'DL_CaseDocuments', 'DL_EntityNameForeign = \'DL_sAMAccountName\' AND DL_ModifiedBy = %WUSER%', 'isnull(DL_SequenceNo,DL_Id)', 'icon,DL_Title:DL_URLDocument,img:../../gif/16x16/delete document 1.gif', '', '', '0,,331', true, 'DL_Id', '', LEX_BasketIsEmpty); // 22.12.2009 - true added - hide header
     else {
         EXshowListData('EXFDB', 'DL_CaseDocuments', 'DL_EntityNameForeign = \'DL_sAMAccountName\' AND DL_ModifiedBy = %WUSER%', 'isnull(DL_SequenceNo,DL_Id)', 'icon,DL_Title:DL_URLDocument,img:../../gif/16x16/delete document 1.gif', '', '', '0,,331', true, 'DL_Id', '', LEX_BasketIsEmpty); // 22.12.2009 - true added - hide header
     }
+<<<<<<< HEAD
 	if (typeof(EXInitDocBasket) == 'function') // 25.6.2017
 	EXInitDocBasket(false);
 	//EXInitDocBasket();
+=======
+    if (typeof (EXInitDocBasket) == 'function') // 25.6.2017 
+        EXInitDocBasket(false);
+    //EXInitDocBasket();
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     //	var oDiv = document.getElementById(sEXAJAXDocBasketDiv);
     //alert(sEXDocBasketFooter + '\n' + oDiv.innerHTML);
     //	oDiv.innerHTML = oDiv.innerHTML.substr(0,oDiv.innerHTML.length-8) + '<tr><td colspan="99">' + sEXDocBasketFooter + '</td></tr></table>'; // 18.12.2009
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 function EXDocBasketEmpty() { // 26.2.2008
     //var LEX_DocBasketEmpty = 'Delete all documents from basket?';
     if (!confirm(LEX_DocBasketEmpty))
@@ -8184,7 +8249,11 @@ function EXActionSubMenu(DLEntityNameForeign, DLEntity, DLId) {
         var xNodes = xActions.selectNodes('//DL_ENTITYDATA/DL_Action');
         var sTable, iRows;
         iRows = xNodes.length;
+<<<<<<< HEAD
         sTable = '<table onclick="EXSubMenuHide()" bg1color="#ccccff" width="180px" height="' + (iRows * 20) + 'px" border="0" bgcolor="#F0F0F0" background-color="#F0F0F0">';
+=======
+        sTable = '<table onclick="EXSubMenuHide()" bg1color="#ccccff" width="180px" height="' + (iRows * 20) + 'px" border="0" bgcolor="#F0F0F0">';
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         var sTitle, sAction, sImage;
         for (var i = 0; i < iRows; i++) {
             sTitle = getsafe(xNodes[i], 'DL_Tooltip');
@@ -8205,15 +8274,25 @@ function EXActionSubMenu(DLEntityNameForeign, DLEntity, DLId) {
             oDiv.id = 'EXSubMenuDIV';
             oDiv.style.zIndex = 6;
             oDiv.style.width = "180px";
+<<<<<<< HEAD
 			oDiv.style.backgroundColor = "white"; //"#F0F0F0";
+=======
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
             document.body.appendChild(oDiv);
             //			oEle.parentElement.appendChild(oDiv);
             oDiv = document.getElementById('EXSubMenuDIV');
         }
+<<<<<<< HEAD
         oDiv.style.height = (iRows * 20 +  20) + "px";
         oDiv.style.position = "absolute";
         oDiv.style.left = getElementLeft1(oEle) + "px";
         oDiv.style.top = getElementTop1(oEle) + "px";
+=======
+        oDiv.style.height = (iRows * 20) + "px";
+        oDiv.style.position = "absolute";
+        oDiv.style.left = getElementLeft1(oEle);
+        oDiv.style.top = getElementTop1(oEle);
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         //oDiv.onmouseout = EXSubMenuHide;
         //alert(sTable);
         oDiv.innerHTML = sTable;
@@ -8225,7 +8304,10 @@ function EXActionSubMenu(DLEntityNameForeign, DLEntity, DLId) {
         bEXSubMenuRunning = true;
         window.event.preventDefault?window.event.preventDefault:window.event.returnValue = false;
 		//window.event.preventDefault();
+<<<<<<< HEAD
 		return true;
+=======
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     } catch (e) { alert('EXActionSubMenu ' + e.message); }
 }
 function EXSubMenuHide() {
@@ -8685,7 +8767,11 @@ function EXAdvDropaddChar(oEle, e, bAnywhere) {
     var matched = false;
 
     var s;
+<<<<<<< HEAD
     // 9.1.2009 - hvis intialer skal prioriteres h√∏jere end dropdown listen s√• skal nedenst√•ende byttes om
+=======
+    // 9.1.2009 - hvis intialer skal prioriteres h¯jere end dropdown listen sÂ skal nedenstÂende byttes om
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     for (i = 0; i < oEle.options.length; i++) {
         if (oEle.options[i].text.match(re)) {
             if (document.forms.length == 0) {
@@ -8737,6 +8823,7 @@ function EXHTMLNote(oEle, DLId) {
 function HTML2Text(HTML) {
     try {
         var s = HTML;
+<<<<<<< HEAD
         s = s.replace(/&#230;/g, '\346'); // √¶
         s = s.replace(/&#198;/g, '\306'); // √Ü
         s = s.replace(/&#248;/g, '\370'); // √∏
@@ -8751,6 +8838,22 @@ function HTML2Text(HTML) {
         s = s.replace(/&#198;/g, '\306'); // √Ü
         s = s.replace(/&#216;/g, '\330'); // √ò
         s = s.replace(/&#197;/g, '\305'); // √Ö
+=======
+        s = s.replace(/&#230;/g, '\346'); // Ê
+        s = s.replace(/&#198;/g, '\306'); // ∆
+        s = s.replace(/&#248;/g, '\370'); // ¯
+        s = s.replace(/&#216;/g, '\330'); // ÿ
+        s = s.replace(/&#229;/g, '\345'); // Â
+        s = s.replace(/&#197;/g, '\305'); // ≈
+        s = s.replace(/&nbsp;/g, ' ');
+        s = s.replace(/&#198;/g, '\306'); // ∆
+        s = s.replace(/&amp;#198;/g, '\306'); // ∆
+        s = s.replace(/<(?:[^>'"]*|(['"]).*?\1)*>/g, "");
+        // Very strange - we need to replace here - doesn't work above - strange!!!
+        s = s.replace(/&#198;/g, '\306'); // ∆
+        s = s.replace(/&#216;/g, '\330'); // ÿ
+        s = s.replace(/&#197;/g, '\305'); // ≈
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         //s = s.replace(/&amp;/g,'&');
         s = s.substr(0, 800);
         return s;
@@ -9349,8 +9452,13 @@ function EXTaskSendBack(DLId) { // 7.10.2009 // 3.10.2012 - send opgaver tilbage
         return;
     //var LEX_TaskSendBackQuestion = 'Vil du sende opgaven fra {0} tilbage?';
     if (confirm(LEX_TaskSendBackQuestion.format(getsafe(oXML, '//DL_TaskFrom')))) {
+<<<<<<< HEAD
         //var LEX_TaskSendBackReason = 'Venligst angiv √•rsagen';
         //var LEX_TaskSendBackExplanation = 'Jeg mener ikke denne task skal l√∏ses af mig fordi ...';
+=======
+        //var LEX_TaskSendBackReason = 'Venligst angiv Ârsagen';
+        //var LEX_TaskSendBackExplanation = 'Jeg mener ikke denne task skal l¯ses af mig fordi ...';
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         var s = prompt(LEX_TaskSendBackReason, LEX_TaskSendBackExplanation);
         if (s == null)
             return;
@@ -10271,10 +10379,17 @@ try {
                 }
                 else if (index == 1) {
                     //$(this).attr("style", "width: 40%; padding: 0px 10px");
+<<<<<<< HEAD
 					$(this).attr("style", "width: 40%; padding: 0px 10px");
                 }
                 else if (index == 2) {
 					$(this).attr("style", "width: 34%;");
+=======
+                    $(this).attr("style", "width: 40%; padding: 0px 10px");
+                }
+                else if (index == 2) {
+                    $(this).attr("style", "width: 34%;");
+>>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
                 }
             });
         }
