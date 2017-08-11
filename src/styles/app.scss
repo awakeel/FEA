@@ -6,6 +6,7 @@
 @import "rtl";
 @import "responsive";
 @import "webpart";
+ 
 .card-header {
   padding: 0.25rem 1rem;
   background-color: rgb(102,136,168);
@@ -54,4 +55,28 @@ a.dropdown-item:hover {
 a {
   color: #1c3d75;
 }
- 
+
+.main-container .table > tbody > tr > td, .main-container .table > tfoot > tr > td, .main-container .table > tfoot > tr > th, .main-container .table > thead > tr > td, .main-container .table > thead > tr > th {
+  padding: 6px 4px
+}
+
+.main-container {
+  font-size: 12px !important;
+  overflow: hidden !important;
+}
+
+.main-container .col-sm-5.webpart {
+  min-width: 45%;
+}
+
+div.article, div.welcome {
+  padding-top: 0;
+}
+
+.cell-margin.tableCol-33 {
+  padding: 0 !important;
+}
+
+.ms-core-listMenu-verticalBox, .ms-core-listMenu-horizontalBox {
+  font-size: 11px;
+}

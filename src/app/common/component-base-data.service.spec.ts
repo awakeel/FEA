@@ -9,7 +9,7 @@ describe('ComponentBaseDataService', () => {
     });
   });
 
-  it('should be created', inject([ComponentBaseDataService], (service: ComponentBaseDataService) => {
+  it('should be created', inject([ComponentBaseDataService], (service: ComponentBaseDataService<any>) => {
     expect(service).toBeTruthy();
   }));
 });

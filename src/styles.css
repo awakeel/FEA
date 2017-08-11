@@ -3,38 +3,3 @@ body {
   font-size:14px;
   font-weight:normal;
 }
-.card-header {
-  padding: 0.25rem 1rem;
-  background-color: rgb(102,136,168);
-  color: #fff;
-}
-
-.table th, .table td {
-  padding: 0.25rem 0.75rem;
-}
-
-body {
-  font-size: 13px;
-}
-
-.card-block {
-  padding: 0.5rem 1.25rem 0rem;
-}
-
-.card-header span:first-child {
-  max-width: 80%;
-  line-height: 18px;
-}
-
-.show > .dropdown-menu {
-  padding: 0;
-}
-
-.dropdown-item {
-  font-size: 13px;
-  padding: 10px 10px;
-}
-
-a.dropdown-item:hover {
-  cursor: pointer;
-}

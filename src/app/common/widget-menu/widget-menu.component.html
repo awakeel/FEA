@@ -1,0 +1,26 @@
+﻿
+<div *ngIf="menuType==='row'; then rowmenu else headermenu"></div>
+<ng-template #rowmenu>
+  <div class="dropdown" *ngIf="menuDataLoaded && menuData && menuData.length > 0">
+    <button type="button" class="dropdown-toggle"  data-toggle="dropdown" style="min-width:20px; padding:2px; border:0px;"></button>
+    <ul class="dropdown-menu pull-right"  role="menu" style="position:absolute;">
+      <li *ngFor="let item of menuData" style="display:block; float:left; padding:5px; cursor:pointer;clear:both;">
+        <a [title]="item.DL_Title" (click)="onItemClick(item.DL_Action,dataRow)">
+          <i [class]="item.DL_CssClass" style="color:darkgreen;"></i>  {{item.DL_Title}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+<ng-template #headermenu> 
+  <div class="btn-group" *ngIf="menuDataLoaded && menuData && menuData.length > 0" style="float:right;">
+    <a data-toggle="dropdown" style="font-size:21px; cursor:pointer; margin-left:8px;"><i class="fa fa-list" aria-hidden="true"></i></a>
+    <ul class="dropdown-menu pull-right" role="menu">
+      <li *ngFor="let item of menuData" style="display:block; float:left; cursor:pointer;">
+        <a [title]="item.DL_Title" (click)="onItemClick(item.DL_Action,item)">
+          <i [class]="item.DL_CssClass" style="color:indigo;"></i>  <span [innerHTML]="item.DL_Title"></span>
+        </a>
+      </li>
+    </ul>
+  </div> 
+</ng-template>

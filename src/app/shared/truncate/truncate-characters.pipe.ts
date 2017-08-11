@@ -1,11 +1,12 @@
-import { Pipe, PipeTransform } from '@angular/core';
+﻿import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'truncate'
 })
 export class TruncateCharactersPipe implements PipeTransform {
   transform(value: string, limit: number = 40, trail: String = '…'): string {
-    if (limit < 0) {
+      if (!value) return '';
+      if (limit < 0) {
       limit *= -1;
       return value.length > limit ? trail + value.substring(value.length - limit, value.length) : value;
     } else {

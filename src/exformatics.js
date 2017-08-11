@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Ôªø/*
-=======
-/*
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 *                                                                  *
 * Exformatics SharePoint 2003, 2007 javascript functions           *
 *                                                                  *
@@ -34,13 +30,8 @@
 // 09-04-2008  mmq   getEntityData3 created.
 // 10-04-2008  mmq   Query modified to use MSSQLFT search - can now search for documents in specific areas
 // 13-04-2008  mmq   Floating Document basket - EXInitMainEntity
-<<<<<<< HEAD
 // 15-04-2008  mmq   Flere justeringer - sm√•fejl - rettet.
 // 19-04-2008  jrd   Lille √¶ndring i EXCloseTask for bagud kompatibilitet
-=======
-// 15-04-2008  mmq   Flere justeringer - smÂfejl - rettet.
-// 19-04-2008  jrd   Lille Êndring i EXCloseTask for bagud kompatibilitet
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 // 23-04-2008  mmq   showAppointment, new javascript and Outlook AddIn function - only if CreatedBy = %WUSER% should be added as criteria!
 // 24-04-2008  mmq   Upgraded CorpNordic - fixed small stuff in JS
 // 29-04-2008  mmq   _EXInitAJAXDocumentBasket function copied from CN
@@ -99,11 +90,7 @@
 // 03-05-2010   mb   Added RemoveOnClick function and updated EXPrintSpecial to remove all onclick's and href's from teh html code.
 // 16-05-2010  mmq   EXXMLHTTP - new function - replaces XMLHTTP
 // 16-05-2010  mmq   XMLHTTP - .Open-.open, .Send-.send, .ResponseXML-.responseXML
-<<<<<<< HEAD
 // 23-05-2010  mmq   Twitter funktionalitet tilf√∏jet - omd√∏bt til Exformatics
-=======
-// 23-05-2010  mmq   Twitter funktionalitet tilf¯jet - omd¯bt til Exformatics
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 // 17-06-2010  mmq   EXInitMainEntity - now using setTimeout in order to increase loading speed - start all functions asap
 // 12-07-2010  mmq   http://intranet moved to Exformatics_cust.js as variable EXServerRoot
 // 15-07-2010  mmq   EXformatValue - DL_Money added and formatted nice
@@ -135,11 +122,7 @@
 // 05-09-2011  mmq   EXWPMenuGet - now supports multiple keypairs
 // 08-09-2011  mmq   DLLinkObject2Object2 added
 // 01-11-2011  mmq   IT_Case 2558
-<<<<<<< HEAD
 // 09-11-2011  mmq   IT_Case 2750 Tilf√∏jet versionstjek
-=======
-// 09-11-2011  mmq   IT_Case 2750 Tilf¯jet versionstjek
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 // 18-11-2011  mmq   IT-Case 2679
 // 15-12-2011  mmq   setCookie - if expires is null then cookies are NOT saved between sessions
 // 21-01-2012  mmq   Set width for DL_Information IFRAME in order to avoid scrollbars
@@ -174,20 +157,15 @@
 // 03-09-2015 tas  Added method resizeIframe to reset height of iframe
 // 06-11-2015  mmq   Use jQuery dialog in EXLoadQuickSearch
 // 14+04+2016  mmq  Add EXWFOpenCasesExcel
-<<<<<<< HEAD
 //Testing purpose new LO angular 4
 var LEX_CannotGotoObjectProbablyNoAccess = 'No access';
-function  goToURL(page, id){
-	document.location = 'http://sagssystem/EX_Custom/FEA/index.html?&DL_Id='+id+'&page='+page.split('_')[1];
+function goToURL(page, id) {
+    document.location = 'http://sagssystem/EX_Custom/FEA/index.html?&DL_Id=' + id + '&page=' + page.split('_')[1];
 }
 function resizeIframe(obj) {
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
     document.getElementById("iframeheader").style.display = 'inline-block';
-}
-=======
-
-
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
+} 
 var iButtonDelete = 1; 	 //   01 - Empty document basket button
 var iButtonNotify = 2; 	 //   02 - Notify document basket
 var iButtonTransmittal = 4;  //   04 - Create transmittal based on document basket
@@ -1429,7 +1407,7 @@ function loadcontent2(url, title, bNewWindow) // 17.6.2008 - bNewWindow
     var e = window.event;
     var ctrl;
     if (e)
-    //ctrl = e.ctrlKey;
+        //ctrl = e.ctrlKey;
         ctrl = e.shiftKey; // 12.2.2010
     else
         ctrl = false;
@@ -1637,8 +1615,8 @@ function loadentityexcel(DL_Entity, strHref, ForeignKey, ForeignValue, ForeignKe
         strXML = strXML + '<NoFilter>' + NoFilter + '</NoFilter>';
     if (NoGridlines != '') // 26.1.2012
         strXML = strXML + '<NoGridlines>' + NoGridlines + '</NoGridlines>';
-	if (bAllowDelete) // 4.11.2014
-		strXML += '<DL_AllowDelete>true</DL_AllowDelete>';
+    if (bAllowDelete) // 4.11.2014
+        strXML += '<DL_AllowDelete>true</DL_AllowDelete>';
     strXML = strXML + '</DL_GenericDBParams>';
     //alert('DEBUG\nloadentityexcel - not OpenGenericTable - ' + strXML + ' ' + strHref);
     OpenGenericTable(0, strXML, strHref);
@@ -1961,7 +1939,7 @@ function EXPickDictionaryReturnValue(field, values) { // 16.4.2008 - this functi
         //alert(field +  ' ' + i);
         var bMulti = window.location.href.indexOf('Multi=true') > -1; // 8.8.2008
         //alert('EXPickDictionaryReturnValue(' + field + ',' + values + ') invoked ' + bMulti);
-        var oEle = window.opener.document.getElementById(field);
+        var oEle = window.parent.document.getElementById(field);
         if (oEle == null)
             oEle = parent.window.getElementById(field);
         if (oEle == null)
@@ -2108,7 +2086,7 @@ function PropNameRowOnOff(DL_PropName, bOn) {
 function PropNameRowClass(DL_PropName, className) {
     try {
         var oEle = document.getElementById('CELL' + DL_PropName);
-	if (oEle == null) return; // 12.9.2014
+        if (oEle == null) return; // 12.9.2014
         var oPELE = oEle.parentNode;
         oPELE.className = className;
     } catch (e) { alert('PropNameRowClass(' + DL_PropName + ')'); }
@@ -2738,8 +2716,8 @@ function EXAdd2DocBasket(EXDocumentID, Title, sURL, EXVersion, szCheckedOutUser,
     // 7.6.2011 - MMQ - REMOVED AGAIN - strange
     //Title = unescape(unescape(Title));
     //sURL = unescape(unescape(sURL));
-	Title = decodeURIComponent(Title);
-	sURL = decodeURIComponent(sURL);
+    Title = decodeURIComponent(Title);
+    sURL = decodeURIComponent(sURL);
     //alert('EXAdd2DocBasket ' + Title);
     //271111, JRD: Removed...
     //if (EXDocumentID == '') {
@@ -2758,7 +2736,7 @@ function EXAdd2DocBasket(EXDocumentID, Title, sURL, EXVersion, szCheckedOutUser,
     var e = window.event;
     var ctrl;
     if (e)
-    //ctrl = e.ctrlKey;
+        //ctrl = e.ctrlKey;
         ctrl = e.shiftKey; // 12.2.2010
     else
         ctrl = false;
@@ -3633,11 +3611,7 @@ function EXLoadAdvancedSearch(Entity) { // 7.12.2014
     EXGotoUrl(url);
 
 }
-<<<<<<< HEAD
 function EXLoadQuickSearch(Entity, bSearchOnLoad, ForeignKey, ForeignValue, PortalType, bInitMainEntity, sParams) { // 1.9.2008 - bInitMainEntity added - set to true if form should be opened in DL_Information web part // 17.12.2010 - sParams tilf√∏jet
-=======
-function EXLoadQuickSearch(Entity, bSearchOnLoad, ForeignKey, ForeignValue, PortalType, bInitMainEntity, sParams) { // 1.9.2008 - bInitMainEntity added - set to true if form should be opened in DL_Information web part // 17.12.2010 - sParams tilf¯jet
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     if (typeof (sParams) == 'undefined')
         sParams = '';
     if (typeof (PortalType) == 'undefined' || PortalType == null)
@@ -3649,7 +3623,7 @@ function EXLoadQuickSearch(Entity, bSearchOnLoad, ForeignKey, ForeignValue, Port
         sWhere = sWhere + ' AND DL_PortalType = ' + PortalType;
     var oXML = getEntityData('DL_D617', sWhere, '');
     var url = getsafe(oXML, '//DL_QuickSearch');
-	 
+
     //alert(sWhere + '\n' + oXML.xml);
     if (url == '') {
         alert('EXLoadQuickSearch(' + Entity + ',' + bSearchOnLoad + ',' + ForeignKey + ',' + ForeignValue + ') object not defined in DL_D617 - please contact administrator');
@@ -3777,8 +3751,8 @@ function EXLoadQuickSearch(Entity, bSearchOnLoad, ForeignKey, ForeignValue, Port
                 oQSIFrame.style.display = '';
                 oQSIFrame.src = url;
             }
-} // 6.11.2015
-         else
+        } // 6.11.2015
+        else
             loadcontent2(url, LEX_QuickSearchTitle + ' ' + EXgetEntityTitle(Entity).toLowerCase());  // 18.5.2012
     }
 }
@@ -3861,12 +3835,12 @@ function EXGotoObject(Entity, Id, bSearch, where, PortalType, bNewWindow, sTask)
     //alert('DEBUG\nEXGotoObject ' + Entity + ' ' + Id);
     try {
         if (window.event) // 23.10.2008
-        //if (window.event.ctrlKey && !bNewWindow)
+            //if (window.event.ctrlKey && !bNewWindow)
             if (window.event.shiftKey && !bNewWindow) // 12.2.2010
                 bNewWindow = true;
-	if (!bNewWindow){
-		CreateOverlay();
-	}
+        if (!bNewWindow) {
+            CreateOverlay();
+        }
         if (typeof (PortalType) == 'undefined' || PortalType == null)
             PortalType = ''; // 14.4.2008
         //var UserPreference = GetEntityItemWhere('DL_sAMAccountName','DL_sAMAccountName = %DL_sAMAccountName%','DL_PortalPreference');
@@ -4029,12 +4003,12 @@ function EXGotoObject(Entity, Id, bSearch, where, PortalType, bNewWindow, sTask)
                 EXGotoUrl(url, true);
         }
         return true;
-    } catch (e) { 
-		if(e.message != ''){
-			//13-02-2015: To avoid alert box when leaving page with some data altered in DynamicForm
-			alert('EXGotoObject ' + e.message); 
-		}
-	}
+    } catch (e) {
+        if (e.message != '') {
+            //13-02-2015: To avoid alert box when leaving page with some data altered in DynamicForm
+            alert('EXGotoObject ' + e.message);
+        }
+    }
 }
 
 function EXGotoObject2(Entity, Id, bSearch, where, PortalType, bNewWindow, sTask) {
@@ -4155,7 +4129,7 @@ function EXGotoObject2(Entity, Id, bSearch, where, PortalType, bNewWindow, sTask
             url = url + '&DL_Task=' + sTask;
 
         if (window.event) // 23.10.2008
-        //if (window.event.ctrlKey && !bNewWindow)
+            //if (window.event.ctrlKey && !bNewWindow)
             if (window.event.shiftKey && !bNewWindow) // 12.2.2010
                 bNewWindow = true;
         //alert('EXGotoObject url=' + url + ' bNewWindow=' + bNewWindow);
@@ -6410,11 +6384,7 @@ function EXCloseTask(DLEntity, DLId, DLModified, bNotApplicable, iApprovalStatus
             oEle = document.getElementById('tr' + DLEntity + DLId); // EXDynWP
         else
             oEle = oEle.parentNode.parentNode.parentNode;
-<<<<<<< HEAD
         if (oEle != null) // 19-04-2008/JRD: Tilf√∏jet if-omkring
-=======
-        if (oEle != null) // 19-04-2008/JRD: Tilf¯jet if-omkring
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         {
             oEle.style.textDecoration = 'line-through';
         }
@@ -6425,11 +6395,7 @@ function EXCloseTask(DLEntity, DLId, DLModified, bNotApplicable, iApprovalStatus
 function EXAssignTaskToCase(DLId) { // 12.5.2008
     alert('EXAssignTaskToCase(' + DLId + ') not implemented yet');
     var xTask = getEntityData('DL_Tasks', 'DL_Id = ' + DLId, '');
-<<<<<<< HEAD
     // 2 drop down lister - een med Sagsgrene - og een med recent objekter - skal det v√¶re muligt at tilf√∏je helt generelt?
-=======
-    // 2 drop down lister - een med Sagsgrene - og een med recent objekter - skal det vÊre muligt at tilf¯je helt generelt?
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 }
 function EXModifyWPTitle(oEle, sText) {
     //alert('EXModifyWPTitle');
@@ -6655,7 +6621,7 @@ function EXDocBasketToEntity(DLEntity, DLId, bFromDocBasket, bSilence) { // 17.9
                 EXWPLoadLinkedDocuments(LEX_LinkedDocuments);
             } catch (e) { }
             if (!bSilence)
-            //var LEX_DocBasketLinkedCompleted = 'Dokumenter linked til sagen';
+                //var LEX_DocBasketLinkedCompleted = 'Dokumenter linked til sagen';
                 alert(LEX_DocBasketLinkedCompleted);
             EXDocBasketRefresh(); // 2.2.2010
         }
@@ -6783,11 +6749,7 @@ function EXInitMainEntity(DLEntity, DLAction, DLEntityIdParam, DLParams, DLTask,
             var sDLWFCaseType = queryString('DLWFCaseType'); // 31.1.2010 - Tele logic
             var sTitle = '';
             if (sDLWFCaseType != '') {
-<<<<<<< HEAD
                 // 11.3.2011 - opret ny sag v√¶lger rigtige objekt
-=======
-                // 11.3.2011 - opret ny sag vÊlger rigtige objekt
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
                 var oCaseType = getEntityData('DL_WFCaseType', 'DL_Id = ' + sDLWFCaseType, '');
                 var DLWFCaseEntityData = getsafe(oCaseType, '//DL_WFCaseEntityData');
                 if (DLWFCaseEntityData != '') { // 29.8.2012 - default values won't work if workflow specific data
@@ -6841,11 +6803,7 @@ function EXInitMainEntity(DLEntity, DLAction, DLEntityIdParam, DLParams, DLTask,
         else {
             //alert('Correct');
             SetRecentValue(DLEntityIdParam, DLId);
-<<<<<<< HEAD
             if (true) { // 19.5.2009 - browserens titel s√¶ttes til sagsnr og sagstitel
-=======
-            if (true) { // 19.5.2009 - browserens titel sÊttes til sagsnr og sagstitel
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
                 //var oXX = getEntityData('DL_CMAllView',"DL_EntityNameForeign = '" + DLEntity + "' AND DL_EntityId=" + DLId,'');
                 var oXX = getEntityData(DLEntity, 'DL_Id=' + DLId, ''); // 7.11.2011 - IT Case 2703 - faster retrieval of title
                 var sTitle, sCaseNo;
@@ -6871,8 +6829,8 @@ function EXInitMainEntity(DLEntity, DLAction, DLEntityIdParam, DLParams, DLTask,
                     //setTimeout(sL,1);
                     //loadcontent2(sUrl,LEX_Notes);
                     //loadcontent2(sUrl, LEX_KnowledgeExchanges);
-					var s1 = 'EXLoadActivityStream(\''+DLEntity+'\', '+DLId+')';
-					setTimeout(s1,1000); // 6.3.2017
+                    var s1 = 'EXLoadActivityStream(\'' + DLEntity + '\', ' + DLId + ')';
+                    setTimeout(s1, 1000); // 6.3.2017
                     //EXLoadActivityStream(DLEntity, DLId);
                 }
                 else if (!bDoNotLoad) { // 18.8.2008 - else statement added
@@ -7002,7 +6960,7 @@ function EXHandleBasketDo(oEle, DLEntity, DLEntityIdParam) { // 18.12.2009
         case 'EXDocBasketJoinSort': EXDocBasketJoinSort(); break; // 4.1.2013
         case 'EXDocBasketToStream': EXDocBasketToStream(DLEntity, queryString(DLEntityIdParam)); break; // 15.1.2013
         case 'EXApproveDocumentProcess': EXApproveDocumentProcess(DLEntity, queryString(DLEntityIdParam)); break; // 30.1.2012
-        case 'EXDocBasketToEntity': EXDocBasketToEntity(DLEntity, queryString(DLEntityIdParam), false, false);EXInitDocBasket(); break; // 3.1.2010 and EXInitDocBasket(); added to refresh Basked Button Counter 12-FEB-2016
+        case 'EXDocBasketToEntity': EXDocBasketToEntity(DLEntity, queryString(DLEntityIdParam), false, false); EXInitDocBasket(); break; // 3.1.2010 and EXInitDocBasket(); added to refresh Basked Button Counter 12-FEB-2016
         case 'EXPasteDocuments': EXDocBasket2Copy(DLEntity, queryString(DLEntityIdParam)); EXDocBasketRefresh(); break;
         case 'EXBatchPrint': EXBatchPrint(); EXDocBasketRefresh(); break;
         default: alert('EXHandleBasketDo(' + oEle.value + ',' + DLEntity + ',' + DLEntityIdParam + ') not defined!!!'); break;
@@ -7062,7 +7020,7 @@ function _EXInitAJAXDocumentBasketFooter(DLEntity, DLEntityIdParam, iButtons) { 
         sSel += '<option value="EXPasteDocuments">' + LEX_DocumentBasketPasteDocuments + '</option>'; // 30.1.2012 ' around LEX variable removed
     }
     if (iButtons & iButtonPrint)
-    //sSel += '<option value="EXBatchPrint">Print basket</option>';
+        //sSel += '<option value="EXBatchPrint">Print basket</option>';
         sSel += '<option value="EXBatchPrint">' + LEX_DocumentBasketPrintDocuments + '</option>';
 
 
@@ -7107,14 +7065,10 @@ function _EXInitAJAXDocumentBasketHeader(DLEntity, DLEntityIdParam, iButtons) { 
             if (iButtons & 4) // Transmittal - document package
                 sHeader = sHeader + '<a href="javascript:EXDocBasket2Transmittal(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'))"><img border="0" alt="' + LEX_CreateTransmittal + '" src="/EX_Resources/gif/16x16/parcel.gif"></img></a>&nbsp;';
             if (iButtons & 8) // Create email
-            //sHeader = sHeader + '<a href="javascript:EXBRMCreateMail(\'\',\'\',\'DL_sAMAccountName\',0,\'\',false)"><img border="0" alt="' + LEX_MailFromDocumentBasket + '" src="/EX_Resources/gif/16x16/email attachment.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function and alt text
+                //sHeader = sHeader + '<a href="javascript:EXBRMCreateMail(\'\',\'\',\'DL_sAMAccountName\',0,\'\',false)"><img border="0" alt="' + LEX_MailFromDocumentBasket + '" src="/EX_Resources/gif/16x16/email attachment.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function and alt text
                 sHeader = sHeader + '<a href="javascript:EXDocBasketCreateMail(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'))"><img border="0" alt="' + LEX_MailFromDocumentBasket + '" src="/EX_Resources/gif/16x16/email attachment.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function and alt text
             if (iButtons & 16) // Link
-<<<<<<< HEAD
                 sHeader = sHeader + '<a href="javascript:EXDocBasketToEntity(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'),true)"><img border="0" alt="' + LEX_LinkDocumentsToEntity + '" src="/EX_Resources/gif/16x16/link.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function // 17.9.2008 - true tilf√∏jet
-=======
-                sHeader = sHeader + '<a href="javascript:EXDocBasketToEntity(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'),true)"><img border="0" alt="' + LEX_LinkDocumentsToEntity + '" src="/EX_Resources/gif/16x16/link.gif"></img></a>&nbsp;'; // 24.4.2008 - fixed function // 17.9.2008 - true tilf¯jet
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
             //	if (true) // 10.12.2008 - add
             //		sHeader = sHeader + '<a href="javascript:EXDWPNewTask(\'' + DLEntity + '\', queryString(\'' + DLEntityIdParam + '\'))"><img border="0" alt="' + // LEX_CreateTaskDocBasket  + '" src="/EX_Resources/gif/16x16/Tasks.gif"></img></a>&nbsp;';
             if (iButtons & 32) // Export files
@@ -7156,43 +7110,24 @@ function EXDocBasketCreateMail(DLEntityNameForeign, DLEntityId) { // IT Case 128
 function EXDWPNewTask(DLEntityNameForeign, DLEntityId) { // 19.5.2009
     newentity('DL_Tasks', 'DL_EntityNameForeign,DL_EntityId', DLEntityNameForeign + ',' + DLEntityId, 'Action=546');
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 function EXDocBasketRefresh() { // 26.2.2008
     //EXshowListData('AJAXDocumentBasket','DL_CaseDocuments','DL_ModifiedBy = %WUSER%','DL_Id','img:../../gif/16x16/delete document 1.gif,DL_Title:DL_URLDocument','','','331');
     // 29.3.2009 - image now in right column
     //	var oEle = document.getElementById(sEXAJAXDocBasketDiv);
     //alert('DEBUG\nEXDocBasketRefresh - Div=' + sEXAJAXDocBasketDiv + ' ' + oEle);
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     if (sEXAJAXDocBasketDiv == 'AJAXDocumentBasket')
         EXshowListData(sEXAJAXDocBasketDiv, 'DL_CaseDocuments', 'DL_EntityNameForeign = \'DL_sAMAccountName\' AND DL_ModifiedBy = %WUSER%', 'isnull(DL_SequenceNo,DL_Id)', 'icon,DL_Title:DL_URLDocument,img:../../gif/16x16/delete document 1.gif', '', '', '0,,331', true, 'DL_Id', '', LEX_BasketIsEmpty); // 22.12.2009 - true added - hide header
     else {
         EXshowListData('EXFDB', 'DL_CaseDocuments', 'DL_EntityNameForeign = \'DL_sAMAccountName\' AND DL_ModifiedBy = %WUSER%', 'isnull(DL_SequenceNo,DL_Id)', 'icon,DL_Title:DL_URLDocument,img:../../gif/16x16/delete document 1.gif', '', '', '0,,331', true, 'DL_Id', '', LEX_BasketIsEmpty); // 22.12.2009 - true added - hide header
     }
-<<<<<<< HEAD
-	if (typeof(EXInitDocBasket) == 'function') // 25.6.2017
-	EXInitDocBasket(false);
-	//EXInitDocBasket();
-=======
-    if (typeof (EXInitDocBasket) == 'function') // 25.6.2017 
+    if (typeof (EXInitDocBasket) == 'function') // 25.6.2017
         EXInitDocBasket(false);
     //EXInitDocBasket();
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     //	var oDiv = document.getElementById(sEXAJAXDocBasketDiv);
     //alert(sEXDocBasketFooter + '\n' + oDiv.innerHTML);
     //	oDiv.innerHTML = oDiv.innerHTML.substr(0,oDiv.innerHTML.length-8) + '<tr><td colspan="99">' + sEXDocBasketFooter + '</td></tr></table>'; // 18.12.2009
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
 function EXDocBasketEmpty() { // 26.2.2008
     //var LEX_DocBasketEmpty = 'Delete all documents from basket?';
     if (!confirm(LEX_DocBasketEmpty))
@@ -7306,7 +7241,7 @@ function _EXshowListData(sEntity, sWhere, sOrderBy, sD710s, sLink, sClickAction,
                 DLPropDisplayName = getsafe(oEXEntity, "//DL_ENTITYCOLS/DL_D610D710[DL_PropNameForeign='" + DLPropName + "']/DL_PropDisplayName");
                 //alert(i + ' ' + DLPropDisplayName + oEXEntity.xml);
                 if (DLPropDisplayName == '')
-                //DLPropDisplayName = getsafe(xD710, "//DL_D710[DL_PropName='" + DLPropName + "']/DL_PropDisplayName");
+                    //DLPropDisplayName = getsafe(xD710, "//DL_D710[DL_PropName='" + DLPropName + "']/DL_PropDisplayName");
                     DLPropDisplayName = getsafe(oEXEntity, "//DL_COLFORMATS/DL_D710[DL_PropName='" + DLPropName + "']/DL_PropDisplayName");
                 if (DLPropName == 'DL_TableIcon' || DLPropName == 'BPM_ImgState') // 15.4.2008 + 25.6.2008
                     DLPropDisplayName = '';
@@ -7374,8 +7309,8 @@ function _EXshowListData(sEntity, sWhere, sOrderBy, sD710s, sLink, sClickAction,
                 else if (DLPropName == '') // 19.8.2009
                     sValue = '';
                 else if (DLPropName == 'DL_TableIcon')
-                // sValue = '<img border="0" src="/EX_Resources/gif/16x16/' + sValue + '"></img>';
-                // 15.4.2011
+                    // sValue = '<img border="0" src="/EX_Resources/gif/16x16/' + sValue + '"></img>';
+                    // 15.4.2011
                     sValue = '<img border="0" src="/EX_Resources/gif/16x16/' + getsafe(xNodes[j], DLPropName) + '"></img>';
                 else if (DLPropName == 'BPM_ImgState') {
                     sValue = '<img border="0" src="/EX_Resources/gif/16x16/flag ' + sValue + '.gif"></img>';
@@ -8047,8 +7982,8 @@ function Query(freetext, SearchPath) {
         // 10.4.2008 - modified to SQL search
         var queryXml;
         if (SearchPath == '')
-        // 090215, JRD changed freetext to contains 
-        //	queryXml = '<QueryPacket xmlns="urn:Microsoft.Search.Query"><Query><SupportedFormats><Format>urn:Microsoft.Search.Response.Document:Document</Format></SupportedFormats><Context><QueryText type="MSSQLFT" language="en-us">select Size,FileType,Rank,Path,Author,Title,description,hithighlightedsummary from scope() where freetext(\'' + freetext + '\')</QueryText></Context><Range><StartAt>1</StartAt><Count>' + sCount + '</Count></Range>' + sProperties + '<EnableStemming>true</EnableStemming><TrimDuplicates>true</TrimDuplicates><IgnoreAllNoiseQuery>true</IgnoreAllNoiseQuery><ImplicitAndBehavior>true</ImplicitAndBehavior><IncludeRelevanceResults>true</IncludeRelevanceResults><IncludeSpecialTermResults>true</IncludeSpecialTermResults><IncludeHighConfidenceResults>true</IncludeHighConfidenceResults></Query></QueryPacket>';
+            // 090215, JRD changed freetext to contains 
+            //	queryXml = '<QueryPacket xmlns="urn:Microsoft.Search.Query"><Query><SupportedFormats><Format>urn:Microsoft.Search.Response.Document:Document</Format></SupportedFormats><Context><QueryText type="MSSQLFT" language="en-us">select Size,FileType,Rank,Path,Author,Title,description,hithighlightedsummary from scope() where freetext(\'' + freetext + '\')</QueryText></Context><Range><StartAt>1</StartAt><Count>' + sCount + '</Count></Range>' + sProperties + '<EnableStemming>true</EnableStemming><TrimDuplicates>true</TrimDuplicates><IgnoreAllNoiseQuery>true</IgnoreAllNoiseQuery><ImplicitAndBehavior>true</ImplicitAndBehavior><IncludeRelevanceResults>true</IncludeRelevanceResults><IncludeSpecialTermResults>true</IncludeSpecialTermResults><IncludeHighConfidenceResults>true</IncludeHighConfidenceResults></Query></QueryPacket>';
             queryXml = '<QueryPacket xmlns="urn:Microsoft.Search.Query"><Query><SupportedFormats><Format>urn:Microsoft.Search.Response.Document:Document</Format></SupportedFormats><Context><QueryText type="MSSQLFT" language="en-us">select Size,FileType,Rank,Path,Author,Title,description,hithighlightedsummary from scope() where Contains(\'"' + freetext + '*"\') and "scope" = \'All Sites\'</QueryText></Context><Range><StartAt>1</StartAt><Count>' + sCount + '</Count></Range>' + sProperties + '<EnableStemming>true</EnableStemming><TrimDuplicates>true</TrimDuplicates><IgnoreAllNoiseQuery>false</IgnoreAllNoiseQuery><ImplicitAndBehavior>true</ImplicitAndBehavior><IncludeRelevanceResults>true</IncludeRelevanceResults><IncludeSpecialTermResults>true</IncludeSpecialTermResults><IncludeHighConfidenceResults>true</IncludeHighConfidenceResults></Query></QueryPacket>';
         else {
             var aPath = SearchPath.split(',');
@@ -8151,8 +8086,8 @@ function Query(freetext, SearchPath) {
     return '';
 }
 function getPropValue(xNode, name) {
-     //var xN = xNode.selectSingleNode('Properties/Property[Name=\'' + name.toUpperCase() + '\']/Value'); // 10.4.2008 - toUpper needed for MSSQLFT
-	var xN = xNode.selectSingleNode('Properties/Property[Name=\'' + name + '\']/Value'); // 12-01-2016 [sak] - original case needed for VF SP2013
+    //var xN = xNode.selectSingleNode('Properties/Property[Name=\'' + name.toUpperCase() + '\']/Value'); // 10.4.2008 - toUpper needed for MSSQLFT
+    var xN = xNode.selectSingleNode('Properties/Property[Name=\'' + name + '\']/Value'); // 12-01-2016 [sak] - original case needed for VF SP2013
     if (xN == null)
         return '';
     //alert('getPropValue ' + xN.xml + ' ' + xN.text);
@@ -8249,11 +8184,7 @@ function EXActionSubMenu(DLEntityNameForeign, DLEntity, DLId) {
         var xNodes = xActions.selectNodes('//DL_ENTITYDATA/DL_Action');
         var sTable, iRows;
         iRows = xNodes.length;
-<<<<<<< HEAD
         sTable = '<table onclick="EXSubMenuHide()" bg1color="#ccccff" width="180px" height="' + (iRows * 20) + 'px" border="0" bgcolor="#F0F0F0" background-color="#F0F0F0">';
-=======
-        sTable = '<table onclick="EXSubMenuHide()" bg1color="#ccccff" width="180px" height="' + (iRows * 20) + 'px" border="0" bgcolor="#F0F0F0">';
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         var sTitle, sAction, sImage;
         for (var i = 0; i < iRows; i++) {
             sTitle = getsafe(xNodes[i], 'DL_Tooltip');
@@ -8274,25 +8205,15 @@ function EXActionSubMenu(DLEntityNameForeign, DLEntity, DLId) {
             oDiv.id = 'EXSubMenuDIV';
             oDiv.style.zIndex = 6;
             oDiv.style.width = "180px";
-<<<<<<< HEAD
-			oDiv.style.backgroundColor = "white"; //"#F0F0F0";
-=======
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
+            oDiv.style.backgroundColor = "white"; //"#F0F0F0";
             document.body.appendChild(oDiv);
             //			oEle.parentElement.appendChild(oDiv);
             oDiv = document.getElementById('EXSubMenuDIV');
         }
-<<<<<<< HEAD
-        oDiv.style.height = (iRows * 20 +  20) + "px";
+        oDiv.style.height = (iRows * 20 + 20) + "px";
         oDiv.style.position = "absolute";
         oDiv.style.left = getElementLeft1(oEle) + "px";
         oDiv.style.top = getElementTop1(oEle) + "px";
-=======
-        oDiv.style.height = (iRows * 20) + "px";
-        oDiv.style.position = "absolute";
-        oDiv.style.left = getElementLeft1(oEle);
-        oDiv.style.top = getElementTop1(oEle);
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         //oDiv.onmouseout = EXSubMenuHide;
         //alert(sTable);
         oDiv.innerHTML = sTable;
@@ -8302,12 +8223,9 @@ function EXActionSubMenu(DLEntityNameForeign, DLEntity, DLId) {
         //alert('EXActionSubMenu(' + DLEntityNameForeign + ',' + DLEntity + ',' + DLId + ') invoked');
         EXSubMenuTimer = setTimeout('EXSubMenuHide()', 8000); // 8 seconds before we hide DIV
         bEXSubMenuRunning = true;
-        window.event.preventDefault?window.event.preventDefault:window.event.returnValue = false;
-		//window.event.preventDefault();
-<<<<<<< HEAD
-		return true;
-=======
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
+        window.event.preventDefault ? window.event.preventDefault : window.event.returnValue = false;
+        //window.event.preventDefault();
+        return true;
     } catch (e) { alert('EXActionSubMenu ' + e.message); }
 }
 function EXSubMenuHide() {
@@ -8767,11 +8685,7 @@ function EXAdvDropaddChar(oEle, e, bAnywhere) {
     var matched = false;
 
     var s;
-<<<<<<< HEAD
     // 9.1.2009 - hvis intialer skal prioriteres h√∏jere end dropdown listen s√• skal nedenst√•ende byttes om
-=======
-    // 9.1.2009 - hvis intialer skal prioriteres h¯jere end dropdown listen sÂ skal nedenstÂende byttes om
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
     for (i = 0; i < oEle.options.length; i++) {
         if (oEle.options[i].text.match(re)) {
             if (document.forms.length == 0) {
@@ -8823,7 +8737,6 @@ function EXHTMLNote(oEle, DLId) {
 function HTML2Text(HTML) {
     try {
         var s = HTML;
-<<<<<<< HEAD
         s = s.replace(/&#230;/g, '\346'); // √¶
         s = s.replace(/&#198;/g, '\306'); // √Ü
         s = s.replace(/&#248;/g, '\370'); // √∏
@@ -8838,22 +8751,6 @@ function HTML2Text(HTML) {
         s = s.replace(/&#198;/g, '\306'); // √Ü
         s = s.replace(/&#216;/g, '\330'); // √ò
         s = s.replace(/&#197;/g, '\305'); // √Ö
-=======
-        s = s.replace(/&#230;/g, '\346'); // Ê
-        s = s.replace(/&#198;/g, '\306'); // ∆
-        s = s.replace(/&#248;/g, '\370'); // ¯
-        s = s.replace(/&#216;/g, '\330'); // ÿ
-        s = s.replace(/&#229;/g, '\345'); // Â
-        s = s.replace(/&#197;/g, '\305'); // ≈
-        s = s.replace(/&nbsp;/g, ' ');
-        s = s.replace(/&#198;/g, '\306'); // ∆
-        s = s.replace(/&amp;#198;/g, '\306'); // ∆
-        s = s.replace(/<(?:[^>'"]*|(['"]).*?\1)*>/g, "");
-        // Very strange - we need to replace here - doesn't work above - strange!!!
-        s = s.replace(/&#198;/g, '\306'); // ∆
-        s = s.replace(/&#216;/g, '\330'); // ÿ
-        s = s.replace(/&#197;/g, '\305'); // ≈
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         //s = s.replace(/&amp;/g,'&');
         s = s.substr(0, 800);
         return s;
@@ -8861,29 +8758,29 @@ function HTML2Text(HTML) {
 }
 
 function EXhandleDLWFCaseTypeChange() { // 9.9.2008 - default functionality
-	var oEle = document.getElementById('DL_WFCaseType');
-	var DLId = oEle.options[oEle.selectedIndex].value;
-	if (queryString('new') != 'true' && DLId == '') // 31.7.2010 - DLId logic added (requested by Tele Greenland - Charlotte)
-		return;
-	if (DLId == '') // 31.7.2010 - added
-		return;
-	if (document.getElementById('DL_CaseLongState') != null)  { // 27.9.2016 - IT Case 6381
-		FillDropDown('DL_CaseLongState','DL_WFCaseTypePhase','DL_SequenceNo','DL_Title','DL_WFCaseType',DLId,'0','','','','',false,'','DL_SequenceNo'); 
-	}
-	if (document.getElementById('DL_CaseProtected') == null) // 14.6.2012 - if no protection exists - ignore
-		return;
-	var oXML = getEntityData('DL_WFCaseType', 'DL_Id = ' + DLId,''); 
-	var DLCaseProtected = getsafe(oXML, '//DL_CaseProtected');
-	if (DLCaseProtected == '')
-		DLCaseProtected = '0';
-	var DLSecurityPersons = getsafe(oXML, '//DL_SecurityPersons');
-	var DLADSecurityGroups = getsafe(oXML, '//DL_ADSecurityGroups');
-	EXSetField('DL_CaseProtected', DLCaseProtected, true);
-	EXSetField('DL_SecurityPersons', DLSecurityPersons, false);
-	EXSetField('DL_ADSecurityGroups', DLADSecurityGroups, false);
-	oEle = document.getElementById('DL_CaseProtected');
-	EXhandleDLCaseProtected(oEle);
-	oEle = null;
+    var oEle = document.getElementById('DL_WFCaseType');
+    var DLId = oEle.options[oEle.selectedIndex].value;
+    if (queryString('new') != 'true' && DLId == '') // 31.7.2010 - DLId logic added (requested by Tele Greenland - Charlotte)
+        return;
+    if (DLId == '') // 31.7.2010 - added
+        return;
+    if (document.getElementById('DL_CaseLongState') != null) { // 27.9.2016 - IT Case 6381
+        FillDropDown('DL_CaseLongState', 'DL_WFCaseTypePhase', 'DL_SequenceNo', 'DL_Title', 'DL_WFCaseType', DLId, '0', '', '', '', '', false, '', 'DL_SequenceNo');
+    }
+    if (document.getElementById('DL_CaseProtected') == null) // 14.6.2012 - if no protection exists - ignore
+        return;
+    var oXML = getEntityData('DL_WFCaseType', 'DL_Id = ' + DLId, '');
+    var DLCaseProtected = getsafe(oXML, '//DL_CaseProtected');
+    if (DLCaseProtected == '')
+        DLCaseProtected = '0';
+    var DLSecurityPersons = getsafe(oXML, '//DL_SecurityPersons');
+    var DLADSecurityGroups = getsafe(oXML, '//DL_ADSecurityGroups');
+    EXSetField('DL_CaseProtected', DLCaseProtected, true);
+    EXSetField('DL_SecurityPersons', DLSecurityPersons, false);
+    EXSetField('DL_ADSecurityGroups', DLADSecurityGroups, false);
+    oEle = document.getElementById('DL_CaseProtected');
+    EXhandleDLCaseProtected(oEle);
+    oEle = null;
 }
 
 function EXhandleDLWFCaseTypeChangeXX() { // 9.9.2008 - default functionality
@@ -9452,13 +9349,8 @@ function EXTaskSendBack(DLId) { // 7.10.2009 // 3.10.2012 - send opgaver tilbage
         return;
     //var LEX_TaskSendBackQuestion = 'Vil du sende opgaven fra {0} tilbage?';
     if (confirm(LEX_TaskSendBackQuestion.format(getsafe(oXML, '//DL_TaskFrom')))) {
-<<<<<<< HEAD
         //var LEX_TaskSendBackReason = 'Venligst angiv √•rsagen';
         //var LEX_TaskSendBackExplanation = 'Jeg mener ikke denne task skal l√∏ses af mig fordi ...';
-=======
-        //var LEX_TaskSendBackReason = 'Venligst angiv Ârsagen';
-        //var LEX_TaskSendBackExplanation = 'Jeg mener ikke denne task skal l¯ses af mig fordi ...';
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
         var s = prompt(LEX_TaskSendBackReason, LEX_TaskSendBackExplanation);
         if (s == null)
             return;
@@ -9514,7 +9406,7 @@ function RemoveOnClick(sHtml) {
 }
 
 function _GetAnchor(htmlstring) {
-    var sHtml = htmlstring.toLowerCase(); ;
+    var sHtml = htmlstring.toLowerCase();;
     var i = sHtml.indexOf('<a');
     var j = sHtml.indexOf('</a>');
     var s;
@@ -9722,10 +9614,10 @@ function EXHTML2XLS(sEXDSDLView, sEXWhere, sEXOrderBy, EXDSDisplayParameters, oE
                 if (sDLPropType == 'DL_Int')
                     newBook.Worksheets(1).Cells(iRow, iCell).NumberFormat = '0';
                 else if (sDLPropType == 'DL_Float')
-                //newBook.Worksheets(1).Cells(iRow,iCell).NumberFormat = '0.00E+00';
+                    //newBook.Worksheets(1).Cells(iRow,iCell).NumberFormat = '0.00E+00';
                     newBook.Worksheets(1).Cells(iRow, iCell).NumberFormat = '#,##0.00';
                 else if (sDLPropType == 'DL_Money')
-                //newBook.Worksheets(1).Cells(iRow,iCell).NumberFormat = '_($* #,##0.00_);_($* (#,##0.00);_($* "-"??_);_(@_)';
+                    //newBook.Worksheets(1).Cells(iRow,iCell).NumberFormat = '_($* #,##0.00_);_($* (#,##0.00);_($* "-"??_);_(@_)';
                     newBook.Worksheets(1).Cells(iRow, iCell).NumberFormat = '_( #,##0.00_);_( (#,##0.00);_( "-"??_);_(@_)';
                 else if (sDLPropType == 'DL_Date') {
                     newBook.Worksheets(1).Cells(iRow, iCell).NumberFormat = 'dd/mm/yyyy';
@@ -10051,7 +9943,7 @@ function EXWPMenuTest() { // 9.8.2011 - retrieves all menu's on page
         oTD = document.getElementById(key);
         oTR = oTD.parentNode;
         oTD = oTR.firstChild.firstChild.firstChild.firstChild; // Get web part title SPAN
-        s += oTD.innerHTML + '\n'; ;
+        s += oTD.innerHTML + '\n';;
         var o1 = {}; // header
         var fct1 = {};
         tooltip = oTD.innerHTML;
@@ -10099,8 +9991,8 @@ function EXWPMenuTest() { // 9.8.2011 - retrieves all menu's on page
     }
     if (oMenu.length > 0) {
         $('#EXMenuTotal').contextMenu(oMenu,
-   			{ theme: 'vista', openOnLeftClick: true }
-		);
+            { theme: 'vista', openOnLeftClick: true }
+        );
         $('#EXMenuTotal').click();
     } else {
         $('#EXMenuTotal').hide();
@@ -10217,7 +10109,7 @@ function EXgetViewPortDimensions() {
     }
     // IE6 in standards compliant mode (i.e. with a valid doctype as the first line in the document)  
     else if (typeof document.documentElement != 'undefined' && typeof document.documentElement.clientWidth != 'undefined'
-						&& document.documentElement.clientWidth != 0) {
+        && document.documentElement.clientWidth != 0) {
         viewportwidth = document.documentElement.clientWidth;
         viewportheight = document.documentElement.clientHeight;
     }
@@ -10379,34 +10271,27 @@ try {
                 }
                 else if (index == 1) {
                     //$(this).attr("style", "width: 40%; padding: 0px 10px");
-<<<<<<< HEAD
-					$(this).attr("style", "width: 40%; padding: 0px 10px");
-                }
-                else if (index == 2) {
-					$(this).attr("style", "width: 34%;");
-=======
                     $(this).attr("style", "width: 40%; padding: 0px 10px");
                 }
                 else if (index == 2) {
                     $(this).attr("style", "width: 34%;");
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
                 }
             });
         }
-		
-		//Changes for showing left panel on administration pages
-		var currentPageUrl = window.location.href.split('?')[0];
-		if(currentPageUrl.indexOf("/_layouts/") > -1){
-			$("#sideNavBox").css("display", "block");
-			$("#contentBox").css("float", "left");
-		}
+
+        //Changes for showing left panel on administration pages
+        var currentPageUrl = window.location.href.split('?')[0];
+        if (currentPageUrl.indexOf("/_layouts/") > -1) {
+            $("#sideNavBox").css("display", "block");
+            $("#contentBox").css("float", "left");
+        }
 
         // Hide menus for notifications or tag cloud if user clicked in documnet outside ActivityStream iframe
         $(document).on('click', function (e) {
             if ($('iframe#DL_Information').length > 0) {
                 $('iframe#DL_Information').contents().find(".comment-menu, .divCornerDD").hide("");
             }
-        });			
+        });
     });
 } catch (e) { }
 
@@ -10427,34 +10312,34 @@ function EXWFDCRGraphOpenInstance(DLWFCaseType, DLEntityNameForeign, DLEntityId)
         alert('Cannot run ' + Path + '\n' + e.message);
     }
 }
-function CreateOverlay(){
-	
-	if($("#exf-overlay").length){
-	}
-	else{		
-		if ( self !== top ) {
-			window.parent.CreateOverlay();
-			return;		
-		}
-		else{
-			$overlayContainer = $("body");	
-		}
-		$overlayContainer.prepend("<div id='exf-overlay'><img src='/EX_RESOURCES/IMG/loading2.gif' id='img-loading' /></div>");
-	}
+function CreateOverlay() {
 
-	$("#exf-overlay").css({
-	  opacity : 0.5,
-	  top     : $overlayContainer.offset().top,
-	  width   : $overlayContainer.outerWidth(),
-	  height  : $overlayContainer.outerHeight()
-	});
+    if ($("#exf-overlay").length) {
+    }
+    else {
+        if (self !== top) {
+            window.parent.CreateOverlay();
+            return;
+        }
+        else {
+            $overlayContainer = $("body");
+        }
+        $overlayContainer.prepend("<div id='exf-overlay'><img src='/EX_RESOURCES/IMG/loading2.gif' id='img-loading' /></div>");
+    }
 
-	$("#img-loading").css({
-	  top  : ($overlayContainer.height() / 2),
-	  left : ($overlayContainer.width() / 2)
-	});
-	
-	$("#exf-overlay").fadeIn();
+    $("#exf-overlay").css({
+        opacity: 0.5,
+        top: $overlayContainer.offset().top,
+        width: $overlayContainer.outerWidth(),
+        height: $overlayContainer.outerHeight()
+    });
+
+    $("#img-loading").css({
+        top: ($overlayContainer.height() / 2),
+        left: ($overlayContainer.width() / 2)
+    });
+
+    $("#exf-overlay").fadeIn();
 }
 function ExformaticsMovePost(DL_Id, DL_Entity) {
     if (queryString(DL_Entity, true) == DL_Id) {
@@ -10482,8 +10367,8 @@ function ExformaticsMovePost(DL_Id, DL_Entity) {
     if (typeof ($("#commentId", parent.document.body).val()) != 'undefined') {
         $("#" + commentId, parent.document.body).remove();
     }
-//    else if (typeof (window.parent.$('#DL_Information').contents().find("#commentId").val()) != 'undefined') {
-//        window.parent.$('#DL_Information').contents().find("#" + commentId).remove();
+    //    else if (typeof (window.parent.$('#DL_Information').contents().find("#commentId").val()) != 'undefined') {
+    //        window.parent.$('#DL_Information').contents().find("#" + commentId).remove();
     //    }
     else if (typeof (window.parent.$('iframe[name=DL_Information]').last().contents().find("#commentId").val()) != 'undefined') {
         window.parent.$('iframe[name=DL_Information]').last().contents().find("#" + commentId).remove();

@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\common",
+    "\\src\\app\\common\\widget-menu",
+    "\\src\\app\\widgets",
+    "\\src\\app\\widgets\\dynamic-page",
+    "\\src\\app\\widgets\\organization",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\karma.conf.js",
+  "SelectedNode": "\\src\\environments\\environment.prod.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,15 @@
+﻿ul {
+    overflow: auto;
+}
+
+ul li {
+    list-style-type: none;
+    float: right;
+}
+
+ul li a i {
+     
+    width: 15px;
+     
+    margin-right: 10px; 
+}

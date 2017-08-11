@@ -1,0 +1,36 @@
+﻿<div *ngIf="isDataLoaded" class="card mb-3">
+  <div class="card-header">
+    <span style="float: left">{{data.DL_WebPart}}</span>
+    <app-widget-menu #hm [menuDataLoaded]="menuDataLoaded" [view]="data.DL_View" [menuType]="'header'" [page]="data.DL_Page" [menuData]="filterByMenuType('header')" (buttonClick)="onActionClick($event, 1)"></app-widget-menu>
+
+  </div>
+  <div *ngFor="let item of entityData" class="card-block table-responsive">
+
+    <p  title="Vis organisationens stamkort...">
+      <b>Navn:</b>
+      <a (click)="loadFunction('DL_Person', item.DL_Id)">{{item.DL_Name}}</a>
+    </p>
+    <p>
+      <b>Primærorganisation:</b> <a (click)="loadURL(item.DL_Id)">{{item.DL_Title}}</a>
+    </p>
+    <p>
+      <b>	Kort titel:</b>
+      <span>{{item.DL_OrganisationTitle}}</span>
+    </p>
+    <p>
+      <b>	Rolle:</b>
+      <span>{{item.DL_RoleDecode}}</span>
+    </p>
+
+    <p>
+      <b>Telefon:</b> {{item.DL_Phone}}
+    </p>
+
+    <p>
+      <b>Oprettet af:</b> {{item.DL_CreatedBy | extractNameFromADUserName}} {{item.DL_Created | date: 'dd/MM/yy'}}
+    </p>
+    <p>
+      <b>Ændret af:</b> {{item.DL_ModifiedBy | extractNameFromADUserName}} {{item.DL_Modified | date: 'dd/MM/yy'}}
+    </p>
+
+  </div>

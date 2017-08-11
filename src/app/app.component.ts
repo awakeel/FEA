@@ -1,6 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 // import { Router } from '@angular/router';
-import { DynamicPageComponent } from './dynamic-page';
+import { WidgetsModule } from './widgets';
+import { DynamicPageComponent } from './widgets/dynamic-page';
 
 
 
@@ -15,7 +17,7 @@ export class AppComponent implements OnInit {
   /**
    * constructor
    */
-  constructor(/*public router: Router*/) {
+  constructor(private translate: TranslateService /*public router: Router*/) {
     // router.resetConfig([
     //   {
     //     path: '', component: AppComponent, children: [
@@ -25,6 +27,11 @@ export class AppComponent implements OnInit {
     //     ]
     //   }
     // ]);
+    translate.addLangs(['en', 'da', 'sv']);
+    translate.setDefaultLang('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|da|sv|es/) ? browserLang : 'en');
+
   }
 
   ngOnInit() {

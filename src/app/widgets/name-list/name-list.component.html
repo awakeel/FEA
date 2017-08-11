@@ -1,0 +1,36 @@
+﻿<div *ngIf="isDataLoaded" class="card mb-3">
+  <div class="card-header">
+    <span style="float: left">{{data.DL_WebPart}}</span>
+    <app-widget-menu #hm [menuDataLoaded]="menuDataLoaded" [view]="data.DL_View" [menuType]="'header'" [page]="data.DL_Page" [menuData]="filterByMenuType('header')" (buttonClick)="onActionClick($event, 1)"></app-widget-menu>
+
+  </div>
+  <div *ngFor="let item of entityData" class="card-block table-responsive">
+    <p title="Vis organisationens stamkort...">
+      <b>Navn:</b>
+      <ng-template [ngIf]="item.DL_Title">
+        <a (click)="loadFunction('DL_NameList',item.DL_Id)">{{item.DL_Title}}</a>
+      </ng-template>
+
+    </p>
+    
+    <p>
+      <b>Nedsat:</b>
+      <ng-template [ngIf]="item.DL_SQLStatement !=''">
+
+        {{ item.DL_SQLStatement}} Dynamisk
+
+      </ng-template>
+      <ng-template [ngIf]="item.DL_SQLStatement ==''">
+
+        Statisk
+
+      </ng-template>
+    </p>
+     
+    <p>
+      <b>Oprettet af:</b> {{item.DL_CreatedBy | extractNameFromADUserName}} {{item.DL_Created | date: 'dd/MM/yy'}}
+    </p>
+    <p>
+      <b>Ændret af:</b> {{item.DL_ModifiedBy | extractNameFromADUserName}} {{item.DL_Modified | date: 'dd/MM/yy'}}
+    </p>
+  </div>

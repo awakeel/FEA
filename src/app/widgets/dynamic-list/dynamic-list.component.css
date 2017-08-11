@@ -1,0 +1,45 @@
+﻿h3 {
+  color: royalblue
+}
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th .table tr td {
+  line-height: 1px;
+  padding: 5px 2px; 
+  border: none !important;
+}
+.table tr td {
+border:none!important;
+}
+  .table tr td a {
+    color: #0072bc;
+    cursor:pointer;
+  }
+  .table tr td a:hover {
+    text-decoration:underline;
+  }
+ul {
+  overflow: auto;
+}
+.nav-link {
+cursor:pointer;
+} ul li {
+  list-style-type: none;
+  float: right;
+}
+  ul li a {
+   cursor:pointer;
+  }
+  
+  ul li a i {
+    width: 15px;
+    margin-right: 10px;
+  } 
+.table th,
+.table td :nth-last-child() {
+  float: right;
+}
+  .overflow-content {
+  height: 100%;
+  max-height: 300px;
+  padding: 5px !important;
+  overflow-y: auto;
+} 

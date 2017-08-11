@@ -1,0 +1,42 @@
+﻿
+<div *ngIf="isDataAvailable">
+
+
+  <section class="main-container" style="min-width:800px;">
+    <div *ngIf="PageTemplate === '3-col' then threecolcontent else onecolcontent;"></div>
+    <ng-template #threecolcontent>
+      <div class="row ">
+
+        <div class="col-sm-3 webpart  ">
+          <app-dynamic-loader [_widgets]="filterByZone('left')"></app-dynamic-loader>
+        </div>
+        <div class="col-sm-5 webpart  ">
+          <app-dynamic-loader [_widgets]="filterByZone('center')"></app-dynamic-loader>
+        </div>
+        <div class="col-sm-3 webpart  ">
+          <app-dynamic-loader [_widgets]="filterByZone('right')"></app-dynamic-loader>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="col-sm-11" style="padding-bottom:30px;">
+          <app-dynamic-loader [_widgets]="filterByZone('bottom')"></app-dynamic-loader>
+        </div>
+
+      </div>
+    </ng-template>
+
+    <ng-template #onecolcontent>
+      <div class="row" >
+
+
+        <div class="col-sm-11 col-md-11" style="padding-bottom:30px;">
+          <app-dynamic-loader [_widgets]="filterByZone('center')"></app-dynamic-loader>
+        </div>
+
+      </div>
+    </ng-template>
+
+
+  </section>
+
+</div>

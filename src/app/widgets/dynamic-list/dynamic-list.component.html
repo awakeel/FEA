@@ -1,0 +1,87 @@
+﻿<div class="card mb-3">
+  <!-- <p>{{randomText}}</p> -->
+  <div class="card-header">
+    <span style="float:left" [title]="data.DL_WebPart" class="spn-webpart-title">{{data.DL_WebPart}}</span>
+    <!--<app-dropdown-menu #dd [config]="data" (menuClick)="onMenuClick($event)"></app-dropdown-menu>-->
+    <app-widget-menu #hm [menuDataLoaded]="menuDataLoaded" [view]="data.DL_View" [menuType]="'header'" [page]="data.DL_Page" [menuData]="filterByMenuType('header')" (buttonClick)="onActionClick($event, 1)"></app-widget-menu>
+    <!--<app-widget-menu #hm [menuDataLoaded]="menuDataLoaded" [menuType]="'header'" [menuData]="filterByMenuType('header')" (buttonClick)="onButtonClick($event, null)"></app-widget-menu>-->
+    <span style="float:right; cursor:pointer"> <a class="nav-link" (click)="refresh()"><i style="font-size:14px;" class="fa fa-refresh"></i></a></span>
+  </div>
+
+
+  <div *ngIf="data.DL_PageTemplate == '1-col';then onecolumn else threecolumn"></div>
+  <ng-template #threecolumn>
+    <div class="card-block overflow-content">
+
+      <!-- <app-widget-menu #wm [menuData]="data['DL_RelatedActions']" (buttonClick)="onButtonClick($event)"></app-widget-menu> -->
+      <table *ngIf="isDataLoaded" class="table" style="width:100%">
+         
+        <div *ngIf="entityData  && entityData.length > 0;then datacontent else no_datacontent"></div>
+        <ng-template #datacontent>
+          <tr *ngIf="data.DL_Zone=='bottom'" style="border:1px solid rgba(0, 0, 0, .125); font-size:15px;">
+            <th style="min-width:5%;" *ngFor="let h of getColumns(data.DL_Columns)">{{getTitle(h)}}</th>
+          </tr>
+          <tr *ngFor="let row of entityData"> 
+
+            <td *ngIf="data.DL_Column1">
+              <span *ngIf="data.DL_Menu =='DL_TableIcon'">
+                <img  [src]="row[data.DL_Menu]" />
+              </span>
+                <a [title]="row[data.DL_Column1.trim()]" (click)="gotoObjectWrapper(data.DL_Action1.trim(),row)" class="ellipsis">{{row[data.DL_Column1.trim()]}}</a>
+               
+                <span *ngIf="checkPrimary(row)">
+                  <a>
+                    <i class="fa fa-heart" style="color:red"></i>
+                  </a>
+                </span>
+</td>
+
+            <td *ngIf="data.DL_Column2"><a [title]="row[data.DL_Column2.trim()]" (click)="gotoObjectWrapper(data.DL_Action2.trim(),row)" class="ellipsis">{{row[data.DL_Column2.trim()]}}</a></td>
+
+            <td *ngFor="let c of getColumns(data.DL_Columns)" [title]="row[c]">{{row[c] | truncate:15}}</td>
+
+            <td align="right">
+              <app-widget-menu  #lm [menuDataLoaded]="menuDataLoaded" [page]="data.DL_Page" [view]="data.DL_View" [menuType]="'row'" [menuData]="filterByMenuType('row')" [dataRow]="row" (buttonClick)="onButtonClick($event, row)"></app-widget-menu>
+
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template #no_datacontent>
+          <tr>
+            <td>
+                <p>  {{nodata}}</p>
+            </td>
+          </tr>
+        </ng-template>
+       
+
+      </table>
+    </div>
+
+  </ng-template>
+
+  <ng-template #onecolumn>
+    <div class="card-block  ">
+
+      <!-- <app-widget-menu #wm [menuData]="data['DL_RelatedActions']" (buttonClick)="onButtonClick($event)"></app-widget-menu> -->
+      <table *ngIf="isDataLoaded" class="table" style="width:100%">
+        <thead>
+          <tr>
+            <th style="min-width:5%;" *ngFor="let h of getColumns(data.DL_Columns)">{{getTitle(h)}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of entityData">
+            <td *ngFor="let c of getColumns(data.DL_Columns)">
+              <span *ngIf="row[c]">
+                {{row[c] | truncate:25}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+
+
+</div>

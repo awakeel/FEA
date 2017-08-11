@@ -1,13 +1,12 @@
-﻿<span class="float-right">
+﻿<span *ngIf="menuDataLoaded" class="float-right">
           <ul class="navbar-nav ml-auto mt-2 mt-md-0">
-          <li *ngIf="isMenuLoaded" class="nav-item dropdown" ngbDropdown>
-                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
-                        <b class="caret"></b>
+          <li  class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link">
+                      <span class="caret"></span>
                     </a>
                     <div  class="dropdown-menu dropdown-menu-right">
-
-                       <a  class="dropdown-item" *ngFor="let m of menuData" (click)="onClick(m['DL_Action'])"  >
-                        <img [src]="m['DL_TableIcon']" alt=""> <span [innerHTML]="m['DL_Tooltip']"> </span>
+                       <a  class="dropdown-item" *ngFor="let m of menuData" (click)="$event.stopPropagation(); onClick(m.DL_Action)"  >
+                        <i [class]="m.DL_CssClass"></i> &nbsp; <span [innerHTML]="m.DL_Title"></span>
                        </a>
                     </div>
                 </li>

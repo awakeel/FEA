@@ -3,35 +3,32 @@
     "project": {
         "name": "fea-dynamic"
     },
-    "apps": [{
-        "root": "src",
-        "outDir": "dist",
-        "assets": [
-            "assets",
-            "favicon.ico"
-        ],
-        "index": "index.html",
-        "main": "main.ts",
-        "polyfills": "polyfills.ts",
-        "test": "test.ts",
-        "tsconfig": "tsconfig.app.json",
-        "testTsconfig": "tsconfig.spec.json",
-        "prefix": "app",
-        "styles": [
-            "../node_modules/font-awesome/css/font-awesome.css",
-            "styles/app.scss"
-        ],
-<<<<<<< HEAD
-      "scripts": [ "./jquery.js", "./exformatics.js", "./EXNewDocument.js", "./Exformatics_cust.js" ],
-=======
-        "scripts": ["./jquery.min.js", "./exformatics.js"],
->>>>>>> 2adf4216271f4768f5a91ea27f739d1940a5cf2e
-        "environmentSource": "environments/environment.ts",
-        "environments": {
-            "dev": "environments/environment.ts",
-            "prod": "environments/environment.prod.ts"
-        }
-    }],
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "styles/app.scss"
+      ],  
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
     "e2e": {
         "protractor": {
             "config": "./protractor.conf.js"
